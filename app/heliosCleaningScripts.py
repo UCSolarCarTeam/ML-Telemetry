@@ -40,8 +40,20 @@ for column in numerical_df.columns:
     column_outliers = numerical_df[(numerical_df[column] < lower_bound) | (numerical_df[column] > upper_bound)]
     outliers[column] = column_outliers[column].tolist()
 
+# for column, outlier_values in outliers.items():
+#     print(f"Column: {column} : {outlier_values}")
+
+
+#remove the outliers
 for column, outlier_values in outliers.items():
-    print(f"Column: {column} : {outlier_values}")
+    cleaned_df = cleaned_df[~cleaned_df[column].isin(outlier_values)]
+
+# Normalize/Scale the data
+scaler = StandardScaler()
+numerical_columns = cleaned_df.select_dtypes(include=[np.number]).columns
+cleaned_df[numerical_columns] = scaler.fit_transform(cleaned_df[numerical_columns])
+
+print(cleaned_df)
 
 conn.close()
 
