@@ -25,4 +25,4 @@ COPY ./app .
 # CMD ["python", "your_script.py"]
 
 # Example: Run an interactive shell by default
-CMD ["bash"]
+CMD ["python", "heliosCleaningScripts.py"]
