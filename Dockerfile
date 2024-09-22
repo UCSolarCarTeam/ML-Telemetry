@@ -2,8 +2,8 @@
 FROM python:3.9-slim
 
 # Set environment variables to prevent Python from writing .pyc files
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -17,12 +17,6 @@ WORKDIR /app
 # Copy requirements.txt if you have one, otherwise install dependencies directly in the Dockerfile
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
-
-# Install Python dependencies
-# RUN pip install --no-cache-dir pandas numpy matplotlib torch
-
-# Install PyTorch with specific index-url for CUDA 11.8 support
-RUN pip install --no-cache-dir torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 
 # If you have application code, copy it to the working directory
 COPY ./app .

@@ -4,7 +4,7 @@ import sqlite3
 import json
 import numpy as np
 
-conn = sqlite3.connect('app/database.sqlite')
+conn = sqlite3.connect('database.sqlite')
 
 cursor = conn.cursor()
 
