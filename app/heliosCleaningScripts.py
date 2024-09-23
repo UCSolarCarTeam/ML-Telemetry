@@ -8,7 +8,7 @@ pd.set_option('display.max_columns', None)
 
 def readPacketData(connectionURL: str):
 
-    conn = sqlite3.connect('database.sqlite')
+    conn = sqlite3.connect(connectionURL)
 
     query = 'SELECT * FROM packetData LIMIT 100;'
 
@@ -24,7 +24,22 @@ def readPacketData(connectionURL: str):
     parsed_data = df['data'].apply(parsed_json).apply(pd.json_normalize)
     conn.close()
     return parsed_data
+def readLapData(connectionURL: str):
 
+    conn = sqlite3.connect(connectionURL)
+    query = 'SELECT * FROM lapData LIMIT 100;'
+
+    def parsed_json(json_str):
+        try:
+            return json.loads(json_str)
+        except json.JSONDecodeError:
+            return None
+        
+    df = pd.read_sql_query(query, conn)
+
+    parsed_data = df['data'].apply(parsed_json).apply(pd.json_normalize)
+    conn.close()
+    return parsed_data
 def cleanData(parsed_data: pd.DataFrame):
     cleaned_df = pd.concat(parsed_data.tolist(),ignore_index=True)
     numerical_df = cleaned_df.select_dtypes(np.number)
@@ -53,8 +68,13 @@ def cleanData(parsed_data: pd.DataFrame):
 
 def main():
     databaseConnection = "database.sqlite"
-    packetData = readPacketData(databaseConnection)
-    cleanedDf = cleanData(packetData)
-    print(cleanedDf)
+    rawPacketData = readPacketData(databaseConnection)
+    rawLapData = readLapData(databaseConnection)
+
+    cleanedPacketDf = cleanData(rawPacketData)
+    cleanedLapDataDf = cleanData(rawLapData)
+
+    print(cleanedPacketDf)
+    print(cleanedLapDataDf)
 
 main()
