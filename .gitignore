@@ -1,1 +1,5 @@
 **/training_data/*
+app/output.csv
+app/output.feather
+app/output.json
+app/output.parquet
