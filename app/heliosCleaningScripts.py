@@ -67,7 +67,7 @@ def cleanData(parsed_data: pd.DataFrame):
     return cleaned_df
 
 def main():
-    databaseConnection = "database.sqlite"
+    databaseConnection = "../training_data/database.sqlite"
     rawPacketData = readPacketData(databaseConnection)
     rawLapData = readLapData(databaseConnection)
 
