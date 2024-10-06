@@ -40,8 +40,8 @@ def readLapData(connectionURL: str):
     parsed_data = df['data'].apply(parsed_json).apply(pd.json_normalize)
     conn.close()
     return parsed_data
-def cleanData(parsed_data: pd.DataFrame):
-    cleaned_df = pd.concat(parsed_data.tolist(),ignore_index=True)
+def cleanData(parsed_data: pd.DataFrame) -> pd.DataFrame:
+    cleaned_df: pd.DataFrame = pd.concat(parsed_data.tolist(),ignore_index=True)
     numerical_df = cleaned_df.select_dtypes(np.number)
 
     outliers = {}
@@ -63,7 +63,6 @@ def cleanData(parsed_data: pd.DataFrame):
     scaler = StandardScaler()
     numerical_columns = cleaned_df.select_dtypes(include=[np.number]).columns
     cleaned_df[numerical_columns] = scaler.fit_transform(cleaned_df[numerical_columns])
-
     return cleaned_df
 
 def main():
