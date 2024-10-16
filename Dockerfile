@@ -19,4 +19,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY ./app .
 
 # Final CMD (make sure this is the right one)
-CMD ["python", "./scripts/setup.py"]
+CMD ["python", "./main.py"]

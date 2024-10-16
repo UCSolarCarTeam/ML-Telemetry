@@ -1,0 +1,9 @@
+version: "3"
+services:
+  my-python-app:
+    image: my-python-app
+    volumes:
+      - ./training_data/Elysia.Laps.feather:/training_data/Elysia.Laps.feather
+      - ./training_data/Elysia.Packets.feather:/training_data/Elysia.Packets.feather
+    stdin_open: true # Allows you to run the container in interactive mode (-it)
+    tty: true # Allocate a pseudo-TTY for the container

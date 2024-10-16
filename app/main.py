@@ -1,7 +1,7 @@
 import plotly.express as px
 import pandas as pd
-packetTrainingDataPath="./training_data/Elysia.Packets.feather"
-lapTrainingDataPath="./training_data/Elysia.Laps.feather"
+packetTrainingDataPath="../training_data/Elysia.Packets.feather"
+lapTrainingDataPath="../training_data/Elysia.Laps.feather"
 def cleanLapData(df: pd.DataFrame):
     # TODO: Add more cleaning steps when packet structure is finalized.
     df = df.drop(columns=["msgType", "_id.$oid", "averagepackCurrent.$numberDouble", "timestamp.$numberLong"])
