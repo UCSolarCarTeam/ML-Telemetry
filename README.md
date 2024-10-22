@@ -20,3 +20,9 @@ To start the app with docker-compose, run these commands in your terminal:
 ```bash
 docker-compose up
 ```
+
+
+run this command to start a server:
+```bash
+python -m uvicorn app:app --reload
+```
