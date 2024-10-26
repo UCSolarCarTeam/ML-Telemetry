@@ -1,7 +1,9 @@
-version: "3"
 services:
   my-python-app:
+    build: .
     image: my-python-app
+    ports:
+      - "8000:8000"
     volumes:
       - ./training_data/Elysia.Laps.feather:/training_data/Elysia.Laps.feather
       - ./training_data/Elysia.Packets.feather:/training_data/Elysia.Packets.feather

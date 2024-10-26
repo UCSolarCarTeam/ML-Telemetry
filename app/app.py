@@ -26,9 +26,6 @@ async def read_root():
 
 @app.get("/plot")
 async def get_plot():
-
-    # df = px.data.iris()
-    # fig = px.scatter(df, x="sepal_width", y="sepal_length", color="species")
     fig = main()
     graphJSON = pio.to_json(fig)
     return JSONResponse(content=graphJSON)
