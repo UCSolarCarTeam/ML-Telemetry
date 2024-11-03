@@ -1,0 +1,9 @@
+services:
+  protobuf-server:
+    build:
+      context: .
+    image: protobuf-server
+    ports:
+      - "8000:8000"
+    stdin_open: true # Allows you to run the container in interactive mode (-it)
+    tty: true # Allocate a pseudo-TTY for the container
