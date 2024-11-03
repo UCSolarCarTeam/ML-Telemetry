@@ -60,3 +60,23 @@ Once the app is running, you can access it by navigating to:
 You can pull the application image directly from Docker Hub if you prefer not to build locally:
 
 - [Docker Hub - ML Telemetry](https://hub.docker.com/r/nightofthelivingcarrots512/solarcar-ml)
+
+## Generate Python Code from Protobuf
+
+Install the protobuf compiler:
+
+- [Protobuf Installation](https://github.com/protocolbuffers/protobuf)
+
+Generate Python code from the protobuf file:
+
+```bash
+cd ./protobufServer/app 
+protoc --python_out=. --pyi_out=. HeliosPacket.proto 
+```
+
+Navigate back to the root directory and run the following command to start the server:
+
+```bash
+cd ./protobufServer
+docker-compose up --build
+```
