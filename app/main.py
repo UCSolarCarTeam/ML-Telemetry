@@ -18,7 +18,6 @@ def cleanLapData(df: pd.DataFrame):
     df = df.dropna(subset=["averagepackCurrent"])
     return df
 
-
 def cleanPacketData(df: pd.DataFrame):
     # TODO: Add more cleaning steps when packet structure is finalized.
     #drop columns with null or empty values
@@ -55,11 +54,17 @@ def analyzeLapData(df: pd.DataFrame):
     print(cleanedDF.head())
     return generateCorrelationMatrix(cleanedDF)
 
-def main():
-    # lapDataDF = pd.read_feather(lapTrainingDataPath)
-    # return analyzeLapData(lapDataDF)
+def getLapPlot():
+    lapDataDF = pd.read_feather(lapTrainingDataPath)
+    return analyzeLapData(lapDataDF)
+
+def getPacketPlot():
     packetDataDF = pd.read_feather(packetTrainingDataPath)
     return analyzePacketData(packetDataDF)
+
+def main():
+    getLapPlot()
+    getPacketPlot()
 
 if __name__ == "__main__":
     main()
