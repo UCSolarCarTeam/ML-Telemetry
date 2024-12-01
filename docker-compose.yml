@@ -1,7 +1,8 @@
 services:
-  my-python-app:
-    build: .
-    image: my-python-app
+  ml-service:
+    build:
+      context: .
+    image: ml-service
     ports:
       - "8000:8000"
     volumes:

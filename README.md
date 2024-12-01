@@ -33,7 +33,7 @@ Save the data files locally in the `training_data` folder to ensure they are acc
 To run the app in a Docker container:
 
 ```bash
-docker-compose up
+docker-compose up --build
 ```
 
 This will build and start the containerized application, exposing it on `http://localhost:8000`.
