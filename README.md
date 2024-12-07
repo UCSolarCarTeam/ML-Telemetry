@@ -22,6 +22,9 @@ To begin working with the app, clone this repository and ensure you have [Docker
 Download historical telemetry data for Elysia from Google Drive:
 
 - [Google Drive - Telemetry Data](https://drive.google.com/drive/folders/1o3RUT3kpWgqgc6GKOip8LYvmVJYf1p8M)
+- [S3 - Elysia.Laps.feather](https://justin-ml-bucket.s3.ca-central-1.amazonaws.com/Elysia.Laps.feather)
+Save the data files locally in the `training_data` folder to ensure they are accessible when running the app.
+- [S3 - Elysia.Packet.feather](https://justin-ml-bucket.s3.ca-central-1.amazonaws.com/Elysia.Packets.feather)
 
 Save the data files locally in the `training_data` folder to ensure they are accessible when running the app.
 
