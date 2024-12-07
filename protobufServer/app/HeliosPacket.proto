@@ -1,0 +1,271 @@
+syntax = "proto3";
+
+message CoordUpdateResponse {
+  oneof response {
+    Coords coords = 1;
+    Error error = 2;
+  }
+}
+
+message Coords {
+  double lat = 1;
+  double long = 2;
+}
+
+message Error {
+  string error = 1;
+  repeated string invalidFields = 2;
+}
+
+message CoordInfoUpdate {
+  string lat = 1;
+  string long = 2;
+  string password = 3;
+}
+
+enum Motor {
+  LeftMotor = 0;
+  RightMotor = 1;
+}
+
+message ITelemetryData {
+  IAuxBms AuxBms = 1;
+  IBattery Battery = 2;
+  IBatteryFault BatteryFaults = 3;
+  ICcs Ccs = 4;
+  IDriverControls DriverControls = 5;
+  repeated IKeyMotor KeyMotor = 6;
+  ILights Lights = 7;
+  repeated IMPPT MPPT = 8;
+  repeated IMotorDetail MotorDetails = 9;
+  repeated IMotorFault MotorFaults = 10;
+  string PacketTitle = 11;
+  int64 TimeStamp = 12;
+}
+
+message ILapData {
+  double ampHours = 1;
+  double averagePackCurrent = 2;
+  double averageSpeed = 3;
+  double batterySecondsRemaining = 4;
+  double distance = 5;
+  double lapTime = 6;
+  double netPowerOut = 7;
+  int64 timeStamp = 8;
+  double totalPowerIn = 9;
+  double totalPowerOut = 10;
+}
+
+message IAuxBms {
+  bool AllowCharge = 1;
+  bool AllowDischarge = 2;
+  bool AuxBmsAlive = 3;
+  double AuxVoltage = 4;
+  bool ChargeContactorError = 5;
+  bool ChargeNotClosedDueToHighCurrent = 6;
+  bool ChargeOpenButShouldBeClosed = 7;
+  bool ChargeShouldTrip = 8;
+  bool ChargeTripDueToHighCellVoltage = 9;
+  bool ChargeTripDueToHighTemperatureAndCurrent = 10;
+  bool ChargeTripDueToPackCurrent = 11;
+  bool CommonContactorError = 12;
+  bool DischargeContactorError = 13;
+  bool DischargeNotClosedDueToHighCurrent = 14;
+  bool DischargeOpenButShouldBeClosed = 15;
+  bool DischargeShouldTrip = 16;
+  bool DischargeTripDueToHighTemperatureAndCurrent = 17;
+  bool DischargeTripDueToLowCellVoltage = 18;
+  bool DischargeTripDueToPackCurrent = 19;
+  bool HighVoltageEnableState = 20;
+  bool OrionCANReceivedRecently = 21;
+  string PrechargeState = 22;
+  bool ProtectionTrip = 23;
+  bool StrobeBmsLight = 24;
+  bool TripDueToOrionMessageTimeout = 25;
+}
+
+message IKeyMotor {
+  bool Alive = 1;
+  double BusCurrent = 2;
+  double BusVoltage = 3;
+  double SetCurrent = 4;
+  double SetVelocity = 5;
+  double VehicleVelocity = 6;
+}
+
+message IMotorDetail {
+  double BackEmf = 1;
+  double DcBusAmpHours = 2;
+  double DspBoardTemp = 3;
+  double HeatSinkTemp = 4;
+  double MotorCurrentImaginary = 5;
+  double MotorCurrentReal = 6;
+  double MotorTemp = 7;
+  double MotorVoltageImaginary = 8;
+  double MotorVoltageReal = 9;
+  double Odometer = 10;
+  double PhaseBCurrent = 11;
+  double PhaseCCurrent = 12;
+  double SlipSpeed = 13;
+  double VoltageRail15VSupply = 14;
+  double VoltageRail1VSupply = 15;
+  double VoltageRail3VSupply = 16;
+}
+
+message IDriverControls {
+  double Acceleration = 1;
+  bool Alive = 2;
+  bool Aux = 3;
+  bool Brakes = 4;
+  bool Forward = 5;
+  bool Hazard = 6;
+  bool HeadlightsHigh = 7;
+  bool HeadlightsLow = 8;
+  bool HeadlightsOff = 9;
+  bool Horn = 10;
+  bool Interior = 11;
+  bool Lap = 12;
+  bool NextSong = 13;
+  bool PrevSong = 14;
+  bool PushToTalk = 15;
+  double RegenBraking = 16;
+  bool Reset = 17;
+  bool Reverse = 18;
+  bool SignalLeft = 19;
+  bool SignalRight = 20;
+  bool VolumeDown = 21;
+  bool VolumeUp = 22;
+}
+
+message ILights {
+  bool Alive = 1;
+  bool BmsStrobeLight = 2;
+  bool Brakes = 3;
+  bool HighBeams = 4;
+  bool LeftSignal = 5;
+  bool LowBeams = 6;
+  bool RightSignal = 7;
+}
+
+message IBatteryFault {
+  IBatteryErrorFlags ErrorFlags = 1;
+  IBatteryLimitFlags LimitFlags = 2;
+}
+
+message IBatteryErrorFlags {
+  bool PowerSupplyFault = 1;
+  bool AlwaysOnSupplyFault = 2;
+  bool CANBUSCommunicationsFault = 3;
+  bool ChargeLimitEnforcementFault = 4;
+  bool ChargerSafetyRelayFault = 5;
+  bool CurrentSensorFault = 6;
+  bool DischargeLimitEnforcementFault = 7;
+  bool FanMonitorFault = 8;
+  bool HighVoltageIsolationFault = 9;
+  bool InternalCommunicationFault = 10;
+  bool InternalConversionFault = 11;
+  bool InternalLogicFault = 12;
+  bool InternalMemoryFault = 13;
+  bool InternalThermistorsFault = 14;
+  bool LowCellVoltageFault = 15;
+  bool OpenWiringFault = 16;
+  bool PackVoltageSensorFault = 17;
+  bool ThermistorFault = 18;
+  bool VoltageRedundancyFault = 19;
+  bool WeakCellFault = 20;
+  bool WeakPackFault = 21;
+}
+
+message IBatteryLimitFlags {
+  bool CclReducedDueToAlternateCurrentLimit = 1;
+  bool CclReducedDueToChargerLatch = 2;
+  bool CclReducedDueToHighCellResistance = 3;
+  bool CclReducedDueToHighCellVoltage = 4;
+  bool CclReducedDueToHighPackVoltage = 5;
+  bool CclReducedDueToHighSoc = 6;
+  bool CclReducedDueToTemperature = 7;
+  bool DclReducedDueToHighCellResistance = 8;
+  bool DclReducedDueToLowCellVoltage = 9;
+  bool DclReducedDueToLowPackVoltage = 10;
+  bool DclReducedDueToLowSoc = 11;
+  bool DclReducedDueToTemperature = 12;
+  bool DclandCclReducedDueToCommunicationFailsafe = 13;
+  bool DclandCclReducedDueToVoltageFailsafe = 14;
+}
+
+message ICcs {
+  bool CcsAlive = 1;
+}
+
+message IMPPT {
+  bool Alive = 1;
+  double ArrayCurrent = 2;
+  double ArrayVoltage = 3;
+  double BatteryVoltage = 4;
+  double Temperature = 5;
+}
+
+message IMotorFault {
+  IMotorErrorFlags ErrorFlags = 1;
+  IMotorLimitFlags LimitFlags = 2;
+  int32 RxErrorCount = 3;
+  int32 TxErrorCount = 4;
+}
+
+message IMotorErrorFlags {
+  bool BadMotorPositionHallSequence = 1;
+  bool ConfigReadError = 2;
+  bool DcBusOverVoltage = 3;
+  bool DesaturationFault = 4;
+  bool MotorOverSpeed = 5;
+  bool SoftwareOverCurrent = 6;
+  bool Wail15VUnderVoltageLockOut = 7;
+  bool WatchdogCausedLastReset = 8;
+}
+
+message IMotorLimitFlags {
+  bool BusCurrent = 1;
+  bool BusVoltageLower = 2;
+  bool BusVoltageUpper = 3;
+  bool IpmOrMotorTemperature = 4;
+  bool MotorCurrent = 5;
+  bool OutputVoltagePwm = 6;
+  bool Velocity = 7;
+}
+
+message IBattery {
+  double InputVoltage = 1;
+  bool Alive = 2;
+  double AverageCellVoltage = 3;
+  double AverageTemperature = 4;
+  IBMSRelayStatusFlags BMSRelayStatusFlags = 5;
+  double FanSpeed = 6;
+  double FanVoltage = 7;
+  double HighCellVoltage = 8;
+  int32 HighCellVoltageId = 9;
+  double HighTemperature = 10;
+  int32 HighThermistorId = 11;
+  double InternalTemperature = 12;
+  double LowCellVoltage = 13;
+  int32 LowCellVoltageId = 14;
+  double LowTemperature = 15;
+  int32 LowThermistorId = 16;
+  double PackAmphours = 17;
+  double PackCurrent = 18;
+  double PackDepthOfDischarge = 19;
+  double PackStateOfCharge = 20;
+  double PackVoltage = 21;
+  int32 PopulatedCells = 22;
+  double RequestedFanSpeed = 23;
+}
+
+message IBMSRelayStatusFlags {
+  bool AlwaysOnSignalStatus = 1;
+  bool ChargeRelayEnabled = 2;
+  bool ChargerSafetyEnabled = 3;
+  bool DischargeRelayEnabled = 4;
+  bool IsChargingSignalStatus =5;
+  bool IsReadySignalStatus =6;
+  bool MalfunctionIndicatorActive =7;
+  bool MultiPurposeInputSignalStatus =8 ;
+}
