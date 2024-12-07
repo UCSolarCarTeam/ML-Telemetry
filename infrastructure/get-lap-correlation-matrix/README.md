@@ -1,9 +1,14 @@
 # Commands
 
+From View Push Commands:
+<https://ca-central-1.console.aws.amazon.com/ecr/repositories/private/602361116849/get-lap-correlation-matrix?region=ca-central-1>
+
 ```bash
-docker build -t justin-ml .
+aws ecr get-login-password --region ca-central-1 | docker login --username AWS --password-stdin 602361116849.dkr.ecr.ca-central-1.amazonaws.com
 
-docker tag justin-ml:latest 602361116849.dkr.ecr.ca-central-1.amazonaws.com/justin-ml:latest
+docker build -t get-lap-correlation-matrix .
 
-docker push 602361116849.dkr.ecr.ca-central-1.amazonaws.com/justin-ml:latest  
+docker tag get-lap-correlation-matrix:latest 602361116849.dkr.ecr.ca-central-1.amazonaws.com/get-lap-correlation-matrix:latest
+
+docker push 602361116849.dkr.ecr.ca-central-1.amazonaws.com/get-lap-correlation-matrix:latest
 ```
