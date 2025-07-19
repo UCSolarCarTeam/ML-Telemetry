@@ -22,7 +22,7 @@ def cleanLapData(df: pd.DataFrame):
 
 def generateCorrelationMatrix(df: pd.DataFrame):
     correlation_matrix = df.corr(numeric_only=True)
-    return px.imshow(correlation_matrix, title="Correlation Matrix for Helios Data")
+    return px.imshow(correlation_matrix, title="Lap Correlation Matrix for Helios Data", aspect="auto")
 
 def analyzeLapData(df: pd.DataFrame):
     cleanedDF = cleanLapData(df)

@@ -27,7 +27,7 @@ def cleanPacketData(df: pd.DataFrame):
 
 def generateCorrelationMatrix(df: pd.DataFrame):
     correlation_matrix = df.corr(numeric_only=True)
-    return px.imshow(correlation_matrix, title="Correlation Matrix for Helios Data")
+    return px.imshow(correlation_matrix, title="Packet Correlation Matrix for Helios Data")
 
 def analyzePacketData(df: pd.DataFrame):
     cleanedDF = cleanPacketData(df)
