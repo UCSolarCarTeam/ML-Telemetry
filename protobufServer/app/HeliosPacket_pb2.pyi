@@ -1,289 +1,45 @@
-from google.protobuf.internal import containers as _containers
-from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
-class Motor(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = ()
-    LeftMotor: _ClassVar[Motor]
-    RightMotor: _ClassVar[Motor]
-LeftMotor: Motor
-RightMotor: Motor
+class BatteryFaultWarnings(_message.Message):
+    __slots__ = ("CclReducedDueToAlternateCurrentLimit", "CclReducedDueToChargerLatch", "CclReducedDueToHighCellResistance", "CclReducedDueToHighCellVoltage", "CclReducedDueToHighPackVoltage", "CclReducedDueToHighSoc", "CclReducedDueToTemperature", "DclAndCclReducedDueToCommunicationFailsafe", "DclAndCclReducedDueToVoltageFailsafe", "DclReducedDueToHighCellResistance", "DclReducedDueToLowCellVoltage", "DclReducedDueToLowPackVoltage", "DclReducedDueToLowSoc", "DclReducedDueToTemperature")
+    CCLREDUCEDDUETOALTERNATECURRENTLIMIT_FIELD_NUMBER: _ClassVar[int]
+    CCLREDUCEDDUETOCHARGERLATCH_FIELD_NUMBER: _ClassVar[int]
+    CCLREDUCEDDUETOHIGHCELLRESISTANCE_FIELD_NUMBER: _ClassVar[int]
+    CCLREDUCEDDUETOHIGHCELLVOLTAGE_FIELD_NUMBER: _ClassVar[int]
+    CCLREDUCEDDUETOHIGHPACKVOLTAGE_FIELD_NUMBER: _ClassVar[int]
+    CCLREDUCEDDUETOHIGHSOC_FIELD_NUMBER: _ClassVar[int]
+    CCLREDUCEDDUETOTEMPERATURE_FIELD_NUMBER: _ClassVar[int]
+    DCLANDCCLREDUCEDDUETOCOMMUNICATIONFAILSAFE_FIELD_NUMBER: _ClassVar[int]
+    DCLANDCCLREDUCEDDUETOVOLTAGEFAILSAFE_FIELD_NUMBER: _ClassVar[int]
+    DCLREDUCEDDUETOHIGHCELLRESISTANCE_FIELD_NUMBER: _ClassVar[int]
+    DCLREDUCEDDUETOLOWCELLVOLTAGE_FIELD_NUMBER: _ClassVar[int]
+    DCLREDUCEDDUETOLOWPACKVOLTAGE_FIELD_NUMBER: _ClassVar[int]
+    DCLREDUCEDDUETOLOWSOC_FIELD_NUMBER: _ClassVar[int]
+    DCLREDUCEDDUETOTEMPERATURE_FIELD_NUMBER: _ClassVar[int]
+    CclReducedDueToAlternateCurrentLimit: bool
+    CclReducedDueToChargerLatch: bool
+    CclReducedDueToHighCellResistance: bool
+    CclReducedDueToHighCellVoltage: bool
+    CclReducedDueToHighPackVoltage: bool
+    CclReducedDueToHighSoc: bool
+    CclReducedDueToTemperature: bool
+    DclAndCclReducedDueToCommunicationFailsafe: bool
+    DclAndCclReducedDueToVoltageFailsafe: bool
+    DclReducedDueToHighCellResistance: bool
+    DclReducedDueToLowCellVoltage: bool
+    DclReducedDueToLowPackVoltage: bool
+    DclReducedDueToLowSoc: bool
+    DclReducedDueToTemperature: bool
+    def __init__(self, CclReducedDueToAlternateCurrentLimit: bool = ..., CclReducedDueToChargerLatch: bool = ..., CclReducedDueToHighCellResistance: bool = ..., CclReducedDueToHighCellVoltage: bool = ..., CclReducedDueToHighPackVoltage: bool = ..., CclReducedDueToHighSoc: bool = ..., CclReducedDueToTemperature: bool = ..., DclAndCclReducedDueToCommunicationFailsafe: bool = ..., DclAndCclReducedDueToVoltageFailsafe: bool = ..., DclReducedDueToHighCellResistance: bool = ..., DclReducedDueToLowCellVoltage: bool = ..., DclReducedDueToLowPackVoltage: bool = ..., DclReducedDueToLowSoc: bool = ..., DclReducedDueToTemperature: bool = ...) -> None: ...
 
-class CoordUpdateResponse(_message.Message):
-    __slots__ = ("coords", "error")
-    COORDS_FIELD_NUMBER: _ClassVar[int]
-    ERROR_FIELD_NUMBER: _ClassVar[int]
-    coords: Coords
-    error: Error
-    def __init__(self, coords: _Optional[_Union[Coords, _Mapping]] = ..., error: _Optional[_Union[Error, _Mapping]] = ...) -> None: ...
-
-class Coords(_message.Message):
-    __slots__ = ("lat", "long")
-    LAT_FIELD_NUMBER: _ClassVar[int]
-    LONG_FIELD_NUMBER: _ClassVar[int]
-    lat: float
-    long: float
-    def __init__(self, lat: _Optional[float] = ..., long: _Optional[float] = ...) -> None: ...
-
-class Error(_message.Message):
-    __slots__ = ("error", "invalidFields")
-    ERROR_FIELD_NUMBER: _ClassVar[int]
-    INVALIDFIELDS_FIELD_NUMBER: _ClassVar[int]
-    error: str
-    invalidFields: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, error: _Optional[str] = ..., invalidFields: _Optional[_Iterable[str]] = ...) -> None: ...
-
-class CoordInfoUpdate(_message.Message):
-    __slots__ = ("lat", "long", "password")
-    LAT_FIELD_NUMBER: _ClassVar[int]
-    LONG_FIELD_NUMBER: _ClassVar[int]
-    PASSWORD_FIELD_NUMBER: _ClassVar[int]
-    lat: str
-    long: str
-    password: str
-    def __init__(self, lat: _Optional[str] = ..., long: _Optional[str] = ..., password: _Optional[str] = ...) -> None: ...
-
-class ITelemetryData(_message.Message):
-    __slots__ = ("AuxBms", "Battery", "BatteryFaults", "Ccs", "DriverControls", "KeyMotor", "Lights", "MPPT", "MotorDetails", "MotorFaults", "PacketTitle", "TimeStamp")
-    AUXBMS_FIELD_NUMBER: _ClassVar[int]
-    BATTERY_FIELD_NUMBER: _ClassVar[int]
-    BATTERYFAULTS_FIELD_NUMBER: _ClassVar[int]
-    CCS_FIELD_NUMBER: _ClassVar[int]
-    DRIVERCONTROLS_FIELD_NUMBER: _ClassVar[int]
-    KEYMOTOR_FIELD_NUMBER: _ClassVar[int]
-    LIGHTS_FIELD_NUMBER: _ClassVar[int]
-    MPPT_FIELD_NUMBER: _ClassVar[int]
-    MOTORDETAILS_FIELD_NUMBER: _ClassVar[int]
-    MOTORFAULTS_FIELD_NUMBER: _ClassVar[int]
-    PACKETTITLE_FIELD_NUMBER: _ClassVar[int]
-    TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
-    AuxBms: IAuxBms
-    Battery: IBattery
-    BatteryFaults: IBatteryFault
-    Ccs: ICcs
-    DriverControls: IDriverControls
-    KeyMotor: _containers.RepeatedCompositeFieldContainer[IKeyMotor]
-    Lights: ILights
-    MPPT: _containers.RepeatedCompositeFieldContainer[IMPPT]
-    MotorDetails: _containers.RepeatedCompositeFieldContainer[IMotorDetail]
-    MotorFaults: _containers.RepeatedCompositeFieldContainer[IMotorFault]
-    PacketTitle: str
-    TimeStamp: int
-    def __init__(self, AuxBms: _Optional[_Union[IAuxBms, _Mapping]] = ..., Battery: _Optional[_Union[IBattery, _Mapping]] = ..., BatteryFaults: _Optional[_Union[IBatteryFault, _Mapping]] = ..., Ccs: _Optional[_Union[ICcs, _Mapping]] = ..., DriverControls: _Optional[_Union[IDriverControls, _Mapping]] = ..., KeyMotor: _Optional[_Iterable[_Union[IKeyMotor, _Mapping]]] = ..., Lights: _Optional[_Union[ILights, _Mapping]] = ..., MPPT: _Optional[_Iterable[_Union[IMPPT, _Mapping]]] = ..., MotorDetails: _Optional[_Iterable[_Union[IMotorDetail, _Mapping]]] = ..., MotorFaults: _Optional[_Iterable[_Union[IMotorFault, _Mapping]]] = ..., PacketTitle: _Optional[str] = ..., TimeStamp: _Optional[int] = ...) -> None: ...
-
-class ILapData(_message.Message):
-    __slots__ = ("ampHours", "averagePackCurrent", "averageSpeed", "batterySecondsRemaining", "distance", "lapTime", "netPowerOut", "timeStamp", "totalPowerIn", "totalPowerOut")
-    AMPHOURS_FIELD_NUMBER: _ClassVar[int]
-    AVERAGEPACKCURRENT_FIELD_NUMBER: _ClassVar[int]
-    AVERAGESPEED_FIELD_NUMBER: _ClassVar[int]
-    BATTERYSECONDSREMAINING_FIELD_NUMBER: _ClassVar[int]
-    DISTANCE_FIELD_NUMBER: _ClassVar[int]
-    LAPTIME_FIELD_NUMBER: _ClassVar[int]
-    NETPOWEROUT_FIELD_NUMBER: _ClassVar[int]
-    TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
-    TOTALPOWERIN_FIELD_NUMBER: _ClassVar[int]
-    TOTALPOWEROUT_FIELD_NUMBER: _ClassVar[int]
-    ampHours: float
-    averagePackCurrent: float
-    averageSpeed: float
-    batterySecondsRemaining: float
-    distance: float
-    lapTime: float
-    netPowerOut: float
-    timeStamp: int
-    totalPowerIn: float
-    totalPowerOut: float
-    def __init__(self, ampHours: _Optional[float] = ..., averagePackCurrent: _Optional[float] = ..., averageSpeed: _Optional[float] = ..., batterySecondsRemaining: _Optional[float] = ..., distance: _Optional[float] = ..., lapTime: _Optional[float] = ..., netPowerOut: _Optional[float] = ..., timeStamp: _Optional[int] = ..., totalPowerIn: _Optional[float] = ..., totalPowerOut: _Optional[float] = ...) -> None: ...
-
-class IAuxBms(_message.Message):
-    __slots__ = ("AllowCharge", "AllowDischarge", "AuxBmsAlive", "AuxVoltage", "ChargeContactorError", "ChargeNotClosedDueToHighCurrent", "ChargeOpenButShouldBeClosed", "ChargeShouldTrip", "ChargeTripDueToHighCellVoltage", "ChargeTripDueToHighTemperatureAndCurrent", "ChargeTripDueToPackCurrent", "CommonContactorError", "DischargeContactorError", "DischargeNotClosedDueToHighCurrent", "DischargeOpenButShouldBeClosed", "DischargeShouldTrip", "DischargeTripDueToHighTemperatureAndCurrent", "DischargeTripDueToLowCellVoltage", "DischargeTripDueToPackCurrent", "HighVoltageEnableState", "OrionCANReceivedRecently", "PrechargeState", "ProtectionTrip", "StrobeBmsLight", "TripDueToOrionMessageTimeout")
-    ALLOWCHARGE_FIELD_NUMBER: _ClassVar[int]
-    ALLOWDISCHARGE_FIELD_NUMBER: _ClassVar[int]
-    AUXBMSALIVE_FIELD_NUMBER: _ClassVar[int]
-    AUXVOLTAGE_FIELD_NUMBER: _ClassVar[int]
-    CHARGECONTACTORERROR_FIELD_NUMBER: _ClassVar[int]
-    CHARGENOTCLOSEDDUETOHIGHCURRENT_FIELD_NUMBER: _ClassVar[int]
-    CHARGEOPENBUTSHOULDBECLOSED_FIELD_NUMBER: _ClassVar[int]
-    CHARGESHOULDTRIP_FIELD_NUMBER: _ClassVar[int]
-    CHARGETRIPDUETOHIGHCELLVOLTAGE_FIELD_NUMBER: _ClassVar[int]
-    CHARGETRIPDUETOHIGHTEMPERATUREANDCURRENT_FIELD_NUMBER: _ClassVar[int]
-    CHARGETRIPDUETOPACKCURRENT_FIELD_NUMBER: _ClassVar[int]
-    COMMONCONTACTORERROR_FIELD_NUMBER: _ClassVar[int]
-    DISCHARGECONTACTORERROR_FIELD_NUMBER: _ClassVar[int]
-    DISCHARGENOTCLOSEDDUETOHIGHCURRENT_FIELD_NUMBER: _ClassVar[int]
-    DISCHARGEOPENBUTSHOULDBECLOSED_FIELD_NUMBER: _ClassVar[int]
-    DISCHARGESHOULDTRIP_FIELD_NUMBER: _ClassVar[int]
-    DISCHARGETRIPDUETOHIGHTEMPERATUREANDCURRENT_FIELD_NUMBER: _ClassVar[int]
-    DISCHARGETRIPDUETOLOWCELLVOLTAGE_FIELD_NUMBER: _ClassVar[int]
-    DISCHARGETRIPDUETOPACKCURRENT_FIELD_NUMBER: _ClassVar[int]
-    HIGHVOLTAGEENABLESTATE_FIELD_NUMBER: _ClassVar[int]
-    ORIONCANRECEIVEDRECENTLY_FIELD_NUMBER: _ClassVar[int]
-    PRECHARGESTATE_FIELD_NUMBER: _ClassVar[int]
-    PROTECTIONTRIP_FIELD_NUMBER: _ClassVar[int]
-    STROBEBMSLIGHT_FIELD_NUMBER: _ClassVar[int]
-    TRIPDUETOORIONMESSAGETIMEOUT_FIELD_NUMBER: _ClassVar[int]
-    AllowCharge: bool
-    AllowDischarge: bool
-    AuxBmsAlive: bool
-    AuxVoltage: float
-    ChargeContactorError: bool
-    ChargeNotClosedDueToHighCurrent: bool
-    ChargeOpenButShouldBeClosed: bool
-    ChargeShouldTrip: bool
-    ChargeTripDueToHighCellVoltage: bool
-    ChargeTripDueToHighTemperatureAndCurrent: bool
-    ChargeTripDueToPackCurrent: bool
-    CommonContactorError: bool
-    DischargeContactorError: bool
-    DischargeNotClosedDueToHighCurrent: bool
-    DischargeOpenButShouldBeClosed: bool
-    DischargeShouldTrip: bool
-    DischargeTripDueToHighTemperatureAndCurrent: bool
-    DischargeTripDueToLowCellVoltage: bool
-    DischargeTripDueToPackCurrent: bool
-    HighVoltageEnableState: bool
-    OrionCANReceivedRecently: bool
-    PrechargeState: str
-    ProtectionTrip: bool
-    StrobeBmsLight: bool
-    TripDueToOrionMessageTimeout: bool
-    def __init__(self, AllowCharge: bool = ..., AllowDischarge: bool = ..., AuxBmsAlive: bool = ..., AuxVoltage: _Optional[float] = ..., ChargeContactorError: bool = ..., ChargeNotClosedDueToHighCurrent: bool = ..., ChargeOpenButShouldBeClosed: bool = ..., ChargeShouldTrip: bool = ..., ChargeTripDueToHighCellVoltage: bool = ..., ChargeTripDueToHighTemperatureAndCurrent: bool = ..., ChargeTripDueToPackCurrent: bool = ..., CommonContactorError: bool = ..., DischargeContactorError: bool = ..., DischargeNotClosedDueToHighCurrent: bool = ..., DischargeOpenButShouldBeClosed: bool = ..., DischargeShouldTrip: bool = ..., DischargeTripDueToHighTemperatureAndCurrent: bool = ..., DischargeTripDueToLowCellVoltage: bool = ..., DischargeTripDueToPackCurrent: bool = ..., HighVoltageEnableState: bool = ..., OrionCANReceivedRecently: bool = ..., PrechargeState: _Optional[str] = ..., ProtectionTrip: bool = ..., StrobeBmsLight: bool = ..., TripDueToOrionMessageTimeout: bool = ...) -> None: ...
-
-class IKeyMotor(_message.Message):
-    __slots__ = ("Alive", "BusCurrent", "BusVoltage", "SetCurrent", "SetVelocity", "VehicleVelocity")
-    ALIVE_FIELD_NUMBER: _ClassVar[int]
-    BUSCURRENT_FIELD_NUMBER: _ClassVar[int]
-    BUSVOLTAGE_FIELD_NUMBER: _ClassVar[int]
-    SETCURRENT_FIELD_NUMBER: _ClassVar[int]
-    SETVELOCITY_FIELD_NUMBER: _ClassVar[int]
-    VEHICLEVELOCITY_FIELD_NUMBER: _ClassVar[int]
-    Alive: bool
-    BusCurrent: float
-    BusVoltage: float
-    SetCurrent: float
-    SetVelocity: float
-    VehicleVelocity: float
-    def __init__(self, Alive: bool = ..., BusCurrent: _Optional[float] = ..., BusVoltage: _Optional[float] = ..., SetCurrent: _Optional[float] = ..., SetVelocity: _Optional[float] = ..., VehicleVelocity: _Optional[float] = ...) -> None: ...
-
-class IMotorDetail(_message.Message):
-    __slots__ = ("BackEmf", "DcBusAmpHours", "DspBoardTemp", "HeatSinkTemp", "MotorCurrentImaginary", "MotorCurrentReal", "MotorTemp", "MotorVoltageImaginary", "MotorVoltageReal", "Odometer", "PhaseBCurrent", "PhaseCCurrent", "SlipSpeed", "VoltageRail15VSupply", "VoltageRail1VSupply", "VoltageRail3VSupply")
-    BACKEMF_FIELD_NUMBER: _ClassVar[int]
-    DCBUSAMPHOURS_FIELD_NUMBER: _ClassVar[int]
-    DSPBOARDTEMP_FIELD_NUMBER: _ClassVar[int]
-    HEATSINKTEMP_FIELD_NUMBER: _ClassVar[int]
-    MOTORCURRENTIMAGINARY_FIELD_NUMBER: _ClassVar[int]
-    MOTORCURRENTREAL_FIELD_NUMBER: _ClassVar[int]
-    MOTORTEMP_FIELD_NUMBER: _ClassVar[int]
-    MOTORVOLTAGEIMAGINARY_FIELD_NUMBER: _ClassVar[int]
-    MOTORVOLTAGEREAL_FIELD_NUMBER: _ClassVar[int]
-    ODOMETER_FIELD_NUMBER: _ClassVar[int]
-    PHASEBCURRENT_FIELD_NUMBER: _ClassVar[int]
-    PHASECCURRENT_FIELD_NUMBER: _ClassVar[int]
-    SLIPSPEED_FIELD_NUMBER: _ClassVar[int]
-    VOLTAGERAIL15VSUPPLY_FIELD_NUMBER: _ClassVar[int]
-    VOLTAGERAIL1VSUPPLY_FIELD_NUMBER: _ClassVar[int]
-    VOLTAGERAIL3VSUPPLY_FIELD_NUMBER: _ClassVar[int]
-    BackEmf: float
-    DcBusAmpHours: float
-    DspBoardTemp: float
-    HeatSinkTemp: float
-    MotorCurrentImaginary: float
-    MotorCurrentReal: float
-    MotorTemp: float
-    MotorVoltageImaginary: float
-    MotorVoltageReal: float
-    Odometer: float
-    PhaseBCurrent: float
-    PhaseCCurrent: float
-    SlipSpeed: float
-    VoltageRail15VSupply: float
-    VoltageRail1VSupply: float
-    VoltageRail3VSupply: float
-    def __init__(self, BackEmf: _Optional[float] = ..., DcBusAmpHours: _Optional[float] = ..., DspBoardTemp: _Optional[float] = ..., HeatSinkTemp: _Optional[float] = ..., MotorCurrentImaginary: _Optional[float] = ..., MotorCurrentReal: _Optional[float] = ..., MotorTemp: _Optional[float] = ..., MotorVoltageImaginary: _Optional[float] = ..., MotorVoltageReal: _Optional[float] = ..., Odometer: _Optional[float] = ..., PhaseBCurrent: _Optional[float] = ..., PhaseCCurrent: _Optional[float] = ..., SlipSpeed: _Optional[float] = ..., VoltageRail15VSupply: _Optional[float] = ..., VoltageRail1VSupply: _Optional[float] = ..., VoltageRail3VSupply: _Optional[float] = ...) -> None: ...
-
-class IDriverControls(_message.Message):
-    __slots__ = ("Acceleration", "Alive", "Aux", "Brakes", "Forward", "Hazard", "HeadlightsHigh", "HeadlightsLow", "HeadlightsOff", "Horn", "Interior", "Lap", "NextSong", "PrevSong", "PushToTalk", "RegenBraking", "Reset", "Reverse", "SignalLeft", "SignalRight", "VolumeDown", "VolumeUp")
-    ACCELERATION_FIELD_NUMBER: _ClassVar[int]
-    ALIVE_FIELD_NUMBER: _ClassVar[int]
-    AUX_FIELD_NUMBER: _ClassVar[int]
-    BRAKES_FIELD_NUMBER: _ClassVar[int]
-    FORWARD_FIELD_NUMBER: _ClassVar[int]
-    HAZARD_FIELD_NUMBER: _ClassVar[int]
-    HEADLIGHTSHIGH_FIELD_NUMBER: _ClassVar[int]
-    HEADLIGHTSLOW_FIELD_NUMBER: _ClassVar[int]
-    HEADLIGHTSOFF_FIELD_NUMBER: _ClassVar[int]
-    HORN_FIELD_NUMBER: _ClassVar[int]
-    INTERIOR_FIELD_NUMBER: _ClassVar[int]
-    LAP_FIELD_NUMBER: _ClassVar[int]
-    NEXTSONG_FIELD_NUMBER: _ClassVar[int]
-    PREVSONG_FIELD_NUMBER: _ClassVar[int]
-    PUSHTOTALK_FIELD_NUMBER: _ClassVar[int]
-    REGENBRAKING_FIELD_NUMBER: _ClassVar[int]
-    RESET_FIELD_NUMBER: _ClassVar[int]
-    REVERSE_FIELD_NUMBER: _ClassVar[int]
-    SIGNALLEFT_FIELD_NUMBER: _ClassVar[int]
-    SIGNALRIGHT_FIELD_NUMBER: _ClassVar[int]
-    VOLUMEDOWN_FIELD_NUMBER: _ClassVar[int]
-    VOLUMEUP_FIELD_NUMBER: _ClassVar[int]
-    Acceleration: float
-    Alive: bool
-    Aux: bool
-    Brakes: bool
-    Forward: bool
-    Hazard: bool
-    HeadlightsHigh: bool
-    HeadlightsLow: bool
-    HeadlightsOff: bool
-    Horn: bool
-    Interior: bool
-    Lap: bool
-    NextSong: bool
-    PrevSong: bool
-    PushToTalk: bool
-    RegenBraking: float
-    Reset: bool
-    Reverse: bool
-    SignalLeft: bool
-    SignalRight: bool
-    VolumeDown: bool
-    VolumeUp: bool
-    def __init__(self, Acceleration: _Optional[float] = ..., Alive: bool = ..., Aux: bool = ..., Brakes: bool = ..., Forward: bool = ..., Hazard: bool = ..., HeadlightsHigh: bool = ..., HeadlightsLow: bool = ..., HeadlightsOff: bool = ..., Horn: bool = ..., Interior: bool = ..., Lap: bool = ..., NextSong: bool = ..., PrevSong: bool = ..., PushToTalk: bool = ..., RegenBraking: _Optional[float] = ..., Reset: bool = ..., Reverse: bool = ..., SignalLeft: bool = ..., SignalRight: bool = ..., VolumeDown: bool = ..., VolumeUp: bool = ...) -> None: ...
-
-class ILights(_message.Message):
-    __slots__ = ("Alive", "BmsStrobeLight", "Brakes", "HighBeams", "LeftSignal", "LowBeams", "RightSignal")
-    ALIVE_FIELD_NUMBER: _ClassVar[int]
-    BMSSTROBELIGHT_FIELD_NUMBER: _ClassVar[int]
-    BRAKES_FIELD_NUMBER: _ClassVar[int]
-    HIGHBEAMS_FIELD_NUMBER: _ClassVar[int]
-    LEFTSIGNAL_FIELD_NUMBER: _ClassVar[int]
-    LOWBEAMS_FIELD_NUMBER: _ClassVar[int]
-    RIGHTSIGNAL_FIELD_NUMBER: _ClassVar[int]
-    Alive: bool
-    BmsStrobeLight: bool
-    Brakes: bool
-    HighBeams: bool
-    LeftSignal: bool
-    LowBeams: bool
-    RightSignal: bool
-    def __init__(self, Alive: bool = ..., BmsStrobeLight: bool = ..., Brakes: bool = ..., HighBeams: bool = ..., LeftSignal: bool = ..., LowBeams: bool = ..., RightSignal: bool = ...) -> None: ...
-
-class IBatteryFault(_message.Message):
-    __slots__ = ("ErrorFlags", "LimitFlags")
-    ERRORFLAGS_FIELD_NUMBER: _ClassVar[int]
-    LIMITFLAGS_FIELD_NUMBER: _ClassVar[int]
-    ErrorFlags: IBatteryErrorFlags
-    LimitFlags: IBatteryLimitFlags
-    def __init__(self, ErrorFlags: _Optional[_Union[IBatteryErrorFlags, _Mapping]] = ..., LimitFlags: _Optional[_Union[IBatteryLimitFlags, _Mapping]] = ...) -> None: ...
-
-class IBatteryErrorFlags(_message.Message):
-    __slots__ = ("PowerSupplyFault", "AlwaysOnSupplyFault", "CANBUSCommunicationsFault", "ChargeLimitEnforcementFault", "ChargerSafetyRelayFault", "CurrentSensorFault", "DischargeLimitEnforcementFault", "FanMonitorFault", "HighVoltageIsolationFault", "InternalCommunicationFault", "InternalConversionFault", "InternalLogicFault", "InternalMemoryFault", "InternalThermistorsFault", "LowCellVoltageFault", "OpenWiringFault", "PackVoltageSensorFault", "ThermistorFault", "VoltageRedundancyFault", "WeakCellFault", "WeakPackFault")
-    POWERSUPPLYFAULT_FIELD_NUMBER: _ClassVar[int]
+class BatteryFaultErrors(_message.Message):
+    __slots__ = ("AlwaysOnSupplyFault", "CanbusCommunicationFault", "ChargeLimitEnforcementFault", "ChargerSafetyRelayFault", "CurrentSensorFault", "DischargeLimitEnforcementFault", "FanMonitorFault", "HighVoltageIsolationFault", "InternalCommunicationFault", "InternalConversionFault", "InternalLogicFault", "InternalMemoryFault", "InternalThermistorFault", "LowCellVoltageFault", "OpenWiringFault", "PackVoltageSensorFault", "PowerSupply12VFault", "ThermistorFault", "VoltageRedundancyFault", "WeakCellFault", "WeakPackFault")
     ALWAYSONSUPPLYFAULT_FIELD_NUMBER: _ClassVar[int]
-    CANBUSCOMMUNICATIONSFAULT_FIELD_NUMBER: _ClassVar[int]
+    CANBUSCOMMUNICATIONFAULT_FIELD_NUMBER: _ClassVar[int]
     CHARGELIMITENFORCEMENTFAULT_FIELD_NUMBER: _ClassVar[int]
     CHARGERSAFETYRELAYFAULT_FIELD_NUMBER: _ClassVar[int]
     CURRENTSENSORFAULT_FIELD_NUMBER: _ClassVar[int]
@@ -294,17 +50,17 @@ class IBatteryErrorFlags(_message.Message):
     INTERNALCONVERSIONFAULT_FIELD_NUMBER: _ClassVar[int]
     INTERNALLOGICFAULT_FIELD_NUMBER: _ClassVar[int]
     INTERNALMEMORYFAULT_FIELD_NUMBER: _ClassVar[int]
-    INTERNALTHERMISTORSFAULT_FIELD_NUMBER: _ClassVar[int]
+    INTERNALTHERMISTORFAULT_FIELD_NUMBER: _ClassVar[int]
     LOWCELLVOLTAGEFAULT_FIELD_NUMBER: _ClassVar[int]
     OPENWIRINGFAULT_FIELD_NUMBER: _ClassVar[int]
     PACKVOLTAGESENSORFAULT_FIELD_NUMBER: _ClassVar[int]
+    POWERSUPPLY12VFAULT_FIELD_NUMBER: _ClassVar[int]
     THERMISTORFAULT_FIELD_NUMBER: _ClassVar[int]
     VOLTAGEREDUNDANCYFAULT_FIELD_NUMBER: _ClassVar[int]
     WEAKCELLFAULT_FIELD_NUMBER: _ClassVar[int]
     WEAKPACKFAULT_FIELD_NUMBER: _ClassVar[int]
-    PowerSupplyFault: bool
     AlwaysOnSupplyFault: bool
-    CANBUSCommunicationsFault: bool
+    CanbusCommunicationFault: bool
     ChargeLimitEnforcementFault: bool
     ChargerSafetyRelayFault: bool
     CurrentSensorFault: bool
@@ -315,136 +71,54 @@ class IBatteryErrorFlags(_message.Message):
     InternalConversionFault: bool
     InternalLogicFault: bool
     InternalMemoryFault: bool
-    InternalThermistorsFault: bool
+    InternalThermistorFault: bool
     LowCellVoltageFault: bool
     OpenWiringFault: bool
     PackVoltageSensorFault: bool
+    PowerSupply12VFault: bool
     ThermistorFault: bool
     VoltageRedundancyFault: bool
     WeakCellFault: bool
     WeakPackFault: bool
-    def __init__(self, PowerSupplyFault: bool = ..., AlwaysOnSupplyFault: bool = ..., CANBUSCommunicationsFault: bool = ..., ChargeLimitEnforcementFault: bool = ..., ChargerSafetyRelayFault: bool = ..., CurrentSensorFault: bool = ..., DischargeLimitEnforcementFault: bool = ..., FanMonitorFault: bool = ..., HighVoltageIsolationFault: bool = ..., InternalCommunicationFault: bool = ..., InternalConversionFault: bool = ..., InternalLogicFault: bool = ..., InternalMemoryFault: bool = ..., InternalThermistorsFault: bool = ..., LowCellVoltageFault: bool = ..., OpenWiringFault: bool = ..., PackVoltageSensorFault: bool = ..., ThermistorFault: bool = ..., VoltageRedundancyFault: bool = ..., WeakCellFault: bool = ..., WeakPackFault: bool = ...) -> None: ...
+    def __init__(self, AlwaysOnSupplyFault: bool = ..., CanbusCommunicationFault: bool = ..., ChargeLimitEnforcementFault: bool = ..., ChargerSafetyRelayFault: bool = ..., CurrentSensorFault: bool = ..., DischargeLimitEnforcementFault: bool = ..., FanMonitorFault: bool = ..., HighVoltageIsolationFault: bool = ..., InternalCommunicationFault: bool = ..., InternalConversionFault: bool = ..., InternalLogicFault: bool = ..., InternalMemoryFault: bool = ..., InternalThermistorFault: bool = ..., LowCellVoltageFault: bool = ..., OpenWiringFault: bool = ..., PackVoltageSensorFault: bool = ..., PowerSupply12VFault: bool = ..., ThermistorFault: bool = ..., VoltageRedundancyFault: bool = ..., WeakCellFault: bool = ..., WeakPackFault: bool = ...) -> None: ...
 
-class IBatteryLimitFlags(_message.Message):
-    __slots__ = ("CclReducedDueToAlternateCurrentLimit", "CclReducedDueToChargerLatch", "CclReducedDueToHighCellResistance", "CclReducedDueToHighCellVoltage", "CclReducedDueToHighPackVoltage", "CclReducedDueToHighSoc", "CclReducedDueToTemperature", "DclReducedDueToHighCellResistance", "DclReducedDueToLowCellVoltage", "DclReducedDueToLowPackVoltage", "DclReducedDueToLowSoc", "DclReducedDueToTemperature", "DclandCclReducedDueToCommunicationFailsafe", "DclandCclReducedDueToVoltageFailsafe")
-    CCLREDUCEDDUETOALTERNATECURRENTLIMIT_FIELD_NUMBER: _ClassVar[int]
-    CCLREDUCEDDUETOCHARGERLATCH_FIELD_NUMBER: _ClassVar[int]
-    CCLREDUCEDDUETOHIGHCELLRESISTANCE_FIELD_NUMBER: _ClassVar[int]
-    CCLREDUCEDDUETOHIGHCELLVOLTAGE_FIELD_NUMBER: _ClassVar[int]
-    CCLREDUCEDDUETOHIGHPACKVOLTAGE_FIELD_NUMBER: _ClassVar[int]
-    CCLREDUCEDDUETOHIGHSOC_FIELD_NUMBER: _ClassVar[int]
-    CCLREDUCEDDUETOTEMPERATURE_FIELD_NUMBER: _ClassVar[int]
-    DCLREDUCEDDUETOHIGHCELLRESISTANCE_FIELD_NUMBER: _ClassVar[int]
-    DCLREDUCEDDUETOLOWCELLVOLTAGE_FIELD_NUMBER: _ClassVar[int]
-    DCLREDUCEDDUETOLOWPACKVOLTAGE_FIELD_NUMBER: _ClassVar[int]
-    DCLREDUCEDDUETOLOWSOC_FIELD_NUMBER: _ClassVar[int]
-    DCLREDUCEDDUETOTEMPERATURE_FIELD_NUMBER: _ClassVar[int]
-    DCLANDCCLREDUCEDDUETOCOMMUNICATIONFAILSAFE_FIELD_NUMBER: _ClassVar[int]
-    DCLANDCCLREDUCEDDUETOVOLTAGEFAILSAFE_FIELD_NUMBER: _ClassVar[int]
-    CclReducedDueToAlternateCurrentLimit: bool
-    CclReducedDueToChargerLatch: bool
-    CclReducedDueToHighCellResistance: bool
-    CclReducedDueToHighCellVoltage: bool
-    CclReducedDueToHighPackVoltage: bool
-    CclReducedDueToHighSoc: bool
-    CclReducedDueToTemperature: bool
-    DclReducedDueToHighCellResistance: bool
-    DclReducedDueToLowCellVoltage: bool
-    DclReducedDueToLowPackVoltage: bool
-    DclReducedDueToLowSoc: bool
-    DclReducedDueToTemperature: bool
-    DclandCclReducedDueToCommunicationFailsafe: bool
-    DclandCclReducedDueToVoltageFailsafe: bool
-    def __init__(self, CclReducedDueToAlternateCurrentLimit: bool = ..., CclReducedDueToChargerLatch: bool = ..., CclReducedDueToHighCellResistance: bool = ..., CclReducedDueToHighCellVoltage: bool = ..., CclReducedDueToHighPackVoltage: bool = ..., CclReducedDueToHighSoc: bool = ..., CclReducedDueToTemperature: bool = ..., DclReducedDueToHighCellResistance: bool = ..., DclReducedDueToLowCellVoltage: bool = ..., DclReducedDueToLowPackVoltage: bool = ..., DclReducedDueToLowSoc: bool = ..., DclReducedDueToTemperature: bool = ..., DclandCclReducedDueToCommunicationFailsafe: bool = ..., DclandCclReducedDueToVoltageFailsafe: bool = ...) -> None: ...
+class BatteryFaults(_message.Message):
+    __slots__ = ("Errors", "Warnings")
+    ERRORS_FIELD_NUMBER: _ClassVar[int]
+    WARNINGS_FIELD_NUMBER: _ClassVar[int]
+    Errors: BatteryFaultErrors
+    Warnings: BatteryFaultWarnings
+    def __init__(self, Errors: _Optional[_Union[BatteryFaultErrors, _Mapping]] = ..., Warnings: _Optional[_Union[BatteryFaultWarnings, _Mapping]] = ...) -> None: ...
 
-class ICcs(_message.Message):
-    __slots__ = ("CcsAlive",)
-    CCSALIVE_FIELD_NUMBER: _ClassVar[int]
-    CcsAlive: bool
-    def __init__(self, CcsAlive: bool = ...) -> None: ...
-
-class IMPPT(_message.Message):
-    __slots__ = ("Alive", "ArrayCurrent", "ArrayVoltage", "BatteryVoltage", "Temperature")
-    ALIVE_FIELD_NUMBER: _ClassVar[int]
-    ARRAYCURRENT_FIELD_NUMBER: _ClassVar[int]
-    ARRAYVOLTAGE_FIELD_NUMBER: _ClassVar[int]
-    BATTERYVOLTAGE_FIELD_NUMBER: _ClassVar[int]
-    TEMPERATURE_FIELD_NUMBER: _ClassVar[int]
-    Alive: bool
-    ArrayCurrent: float
-    ArrayVoltage: float
-    BatteryVoltage: float
-    Temperature: float
-    def __init__(self, Alive: bool = ..., ArrayCurrent: _Optional[float] = ..., ArrayVoltage: _Optional[float] = ..., BatteryVoltage: _Optional[float] = ..., Temperature: _Optional[float] = ...) -> None: ...
-
-class IMotorFault(_message.Message):
-    __slots__ = ("ErrorFlags", "LimitFlags", "RxErrorCount", "TxErrorCount")
-    ERRORFLAGS_FIELD_NUMBER: _ClassVar[int]
-    LIMITFLAGS_FIELD_NUMBER: _ClassVar[int]
-    RXERRORCOUNT_FIELD_NUMBER: _ClassVar[int]
-    TXERRORCOUNT_FIELD_NUMBER: _ClassVar[int]
-    ErrorFlags: IMotorErrorFlags
-    LimitFlags: IMotorLimitFlags
-    RxErrorCount: int
-    TxErrorCount: int
-    def __init__(self, ErrorFlags: _Optional[_Union[IMotorErrorFlags, _Mapping]] = ..., LimitFlags: _Optional[_Union[IMotorLimitFlags, _Mapping]] = ..., RxErrorCount: _Optional[int] = ..., TxErrorCount: _Optional[int] = ...) -> None: ...
-
-class IMotorErrorFlags(_message.Message):
-    __slots__ = ("BadMotorPositionHallSequence", "ConfigReadError", "DcBusOverVoltage", "DesaturationFault", "MotorOverSpeed", "SoftwareOverCurrent", "Wail15VUnderVoltageLockOut", "WatchdogCausedLastReset")
-    BADMOTORPOSITIONHALLSEQUENCE_FIELD_NUMBER: _ClassVar[int]
-    CONFIGREADERROR_FIELD_NUMBER: _ClassVar[int]
-    DCBUSOVERVOLTAGE_FIELD_NUMBER: _ClassVar[int]
-    DESATURATIONFAULT_FIELD_NUMBER: _ClassVar[int]
-    MOTOROVERSPEED_FIELD_NUMBER: _ClassVar[int]
-    SOFTWAREOVERCURRENT_FIELD_NUMBER: _ClassVar[int]
-    WAIL15VUNDERVOLTAGELOCKOUT_FIELD_NUMBER: _ClassVar[int]
-    WATCHDOGCAUSEDLASTRESET_FIELD_NUMBER: _ClassVar[int]
-    BadMotorPositionHallSequence: bool
-    ConfigReadError: bool
-    DcBusOverVoltage: bool
-    DesaturationFault: bool
-    MotorOverSpeed: bool
-    SoftwareOverCurrent: bool
-    Wail15VUnderVoltageLockOut: bool
-    WatchdogCausedLastReset: bool
-    def __init__(self, BadMotorPositionHallSequence: bool = ..., ConfigReadError: bool = ..., DcBusOverVoltage: bool = ..., DesaturationFault: bool = ..., MotorOverSpeed: bool = ..., SoftwareOverCurrent: bool = ..., Wail15VUnderVoltageLockOut: bool = ..., WatchdogCausedLastReset: bool = ...) -> None: ...
-
-class IMotorLimitFlags(_message.Message):
-    __slots__ = ("BusCurrent", "BusVoltageLower", "BusVoltageUpper", "IpmOrMotorTemperature", "MotorCurrent", "OutputVoltagePwm", "Velocity")
-    BUSCURRENT_FIELD_NUMBER: _ClassVar[int]
-    BUSVOLTAGELOWER_FIELD_NUMBER: _ClassVar[int]
-    BUSVOLTAGEUPPER_FIELD_NUMBER: _ClassVar[int]
-    IPMORMOTORTEMPERATURE_FIELD_NUMBER: _ClassVar[int]
-    MOTORCURRENT_FIELD_NUMBER: _ClassVar[int]
-    OUTPUTVOLTAGEPWM_FIELD_NUMBER: _ClassVar[int]
-    VELOCITY_FIELD_NUMBER: _ClassVar[int]
-    BusCurrent: bool
-    BusVoltageLower: bool
-    BusVoltageUpper: bool
-    IpmOrMotorTemperature: bool
-    MotorCurrent: bool
-    OutputVoltagePwm: bool
-    Velocity: bool
-    def __init__(self, BusCurrent: bool = ..., BusVoltageLower: bool = ..., BusVoltageUpper: bool = ..., IpmOrMotorTemperature: bool = ..., MotorCurrent: bool = ..., OutputVoltagePwm: bool = ..., Velocity: bool = ...) -> None: ...
-
-class IBattery(_message.Message):
-    __slots__ = ("InputVoltage", "Alive", "AverageCellVoltage", "AverageTemperature", "BMSRelayStatusFlags", "FanSpeed", "FanVoltage", "HighCellVoltage", "HighCellVoltageId", "HighTemperature", "HighThermistorId", "InternalTemperature", "LowCellVoltage", "LowCellVoltageId", "LowTemperature", "LowThermistorId", "PackAmphours", "PackCurrent", "PackDepthOfDischarge", "PackStateOfCharge", "PackVoltage", "PopulatedCells", "RequestedFanSpeed")
-    INPUTVOLTAGE_FIELD_NUMBER: _ClassVar[int]
-    ALIVE_FIELD_NUMBER: _ClassVar[int]
+class BatteryStatus(_message.Message):
+    __slots__ = ("AlwaysOnSignalStatus", "AverageCellVoltage", "AverageTemperature", "BmuAlive", "ChargeRelayEnabled", "ChargerSafetyEnabled", "DischargeRelayEnabled", "FanSpeed", "FanVoltage", "HighCellVoltage", "HighCellVoltageId", "HighTemperature", "HighThermistorId", "Input12V", "InternalTemperature", "IsChargingSignalStatus", "IsReadySignalStatus", "LowCellVoltage", "LowCellVoltageId", "LowTemperature", "LowThermistorId", "MalfunctionIndicatorActive", "MaximumCellVoltage", "MaximumPackVoltage", "MinimumCellVoltage", "MinimumPackVoltage", "MultiPurposeInputSignalStatus", "PackAmphours", "PackCurrent", "PackDepthOfDischarge", "PackStateOfCharge", "PackVoltage", "PopulatedCells", "RequestedFanSpeed")
+    ALWAYSONSIGNALSTATUS_FIELD_NUMBER: _ClassVar[int]
     AVERAGECELLVOLTAGE_FIELD_NUMBER: _ClassVar[int]
     AVERAGETEMPERATURE_FIELD_NUMBER: _ClassVar[int]
-    BMSRELAYSTATUSFLAGS_FIELD_NUMBER: _ClassVar[int]
+    BMUALIVE_FIELD_NUMBER: _ClassVar[int]
+    CHARGERELAYENABLED_FIELD_NUMBER: _ClassVar[int]
+    CHARGERSAFETYENABLED_FIELD_NUMBER: _ClassVar[int]
+    DISCHARGERELAYENABLED_FIELD_NUMBER: _ClassVar[int]
     FANSPEED_FIELD_NUMBER: _ClassVar[int]
     FANVOLTAGE_FIELD_NUMBER: _ClassVar[int]
     HIGHCELLVOLTAGE_FIELD_NUMBER: _ClassVar[int]
     HIGHCELLVOLTAGEID_FIELD_NUMBER: _ClassVar[int]
     HIGHTEMPERATURE_FIELD_NUMBER: _ClassVar[int]
     HIGHTHERMISTORID_FIELD_NUMBER: _ClassVar[int]
+    INPUT12V_FIELD_NUMBER: _ClassVar[int]
     INTERNALTEMPERATURE_FIELD_NUMBER: _ClassVar[int]
+    ISCHARGINGSIGNALSTATUS_FIELD_NUMBER: _ClassVar[int]
+    ISREADYSIGNALSTATUS_FIELD_NUMBER: _ClassVar[int]
     LOWCELLVOLTAGE_FIELD_NUMBER: _ClassVar[int]
     LOWCELLVOLTAGEID_FIELD_NUMBER: _ClassVar[int]
     LOWTEMPERATURE_FIELD_NUMBER: _ClassVar[int]
     LOWTHERMISTORID_FIELD_NUMBER: _ClassVar[int]
+    MALFUNCTIONINDICATORACTIVE_FIELD_NUMBER: _ClassVar[int]
+    MAXIMUMCELLVOLTAGE_FIELD_NUMBER: _ClassVar[int]
+    MAXIMUMPACKVOLTAGE_FIELD_NUMBER: _ClassVar[int]
+    MINIMUMCELLVOLTAGE_FIELD_NUMBER: _ClassVar[int]
+    MINIMUMPACKVOLTAGE_FIELD_NUMBER: _ClassVar[int]
+    MULTIPURPOSEINPUTSIGNALSTATUS_FIELD_NUMBER: _ClassVar[int]
     PACKAMPHOURS_FIELD_NUMBER: _ClassVar[int]
     PACKCURRENT_FIELD_NUMBER: _ClassVar[int]
     PACKDEPTHOFDISCHARGE_FIELD_NUMBER: _ClassVar[int]
@@ -452,47 +126,538 @@ class IBattery(_message.Message):
     PACKVOLTAGE_FIELD_NUMBER: _ClassVar[int]
     POPULATEDCELLS_FIELD_NUMBER: _ClassVar[int]
     REQUESTEDFANSPEED_FIELD_NUMBER: _ClassVar[int]
-    InputVoltage: float
-    Alive: bool
+    AlwaysOnSignalStatus: bool
     AverageCellVoltage: float
     AverageTemperature: float
-    BMSRelayStatusFlags: IBMSRelayStatusFlags
+    BmuAlive: float
+    ChargeRelayEnabled: bool
+    ChargerSafetyEnabled: bool
+    DischargeRelayEnabled: bool
     FanSpeed: float
     FanVoltage: float
     HighCellVoltage: float
-    HighCellVoltageId: int
+    HighCellVoltageId: float
     HighTemperature: float
-    HighThermistorId: int
+    HighThermistorId: float
+    Input12V: float
     InternalTemperature: float
+    IsChargingSignalStatus: bool
+    IsReadySignalStatus: bool
     LowCellVoltage: float
-    LowCellVoltageId: int
+    LowCellVoltageId: float
     LowTemperature: float
-    LowThermistorId: int
+    LowThermistorId: float
+    MalfunctionIndicatorActive: bool
+    MaximumCellVoltage: float
+    MaximumPackVoltage: float
+    MinimumCellVoltage: float
+    MinimumPackVoltage: float
+    MultiPurposeInputSignalStatus: bool
     PackAmphours: float
     PackCurrent: float
     PackDepthOfDischarge: float
     PackStateOfCharge: float
     PackVoltage: float
-    PopulatedCells: int
+    PopulatedCells: float
     RequestedFanSpeed: float
-    def __init__(self, InputVoltage: _Optional[float] = ..., Alive: bool = ..., AverageCellVoltage: _Optional[float] = ..., AverageTemperature: _Optional[float] = ..., BMSRelayStatusFlags: _Optional[_Union[IBMSRelayStatusFlags, _Mapping]] = ..., FanSpeed: _Optional[float] = ..., FanVoltage: _Optional[float] = ..., HighCellVoltage: _Optional[float] = ..., HighCellVoltageId: _Optional[int] = ..., HighTemperature: _Optional[float] = ..., HighThermistorId: _Optional[int] = ..., InternalTemperature: _Optional[float] = ..., LowCellVoltage: _Optional[float] = ..., LowCellVoltageId: _Optional[int] = ..., LowTemperature: _Optional[float] = ..., LowThermistorId: _Optional[int] = ..., PackAmphours: _Optional[float] = ..., PackCurrent: _Optional[float] = ..., PackDepthOfDischarge: _Optional[float] = ..., PackStateOfCharge: _Optional[float] = ..., PackVoltage: _Optional[float] = ..., PopulatedCells: _Optional[int] = ..., RequestedFanSpeed: _Optional[float] = ...) -> None: ...
+    def __init__(self, AlwaysOnSignalStatus: bool = ..., AverageCellVoltage: _Optional[float] = ..., AverageTemperature: _Optional[float] = ..., BmuAlive: _Optional[float] = ..., ChargeRelayEnabled: bool = ..., ChargerSafetyEnabled: bool = ..., DischargeRelayEnabled: bool = ..., FanSpeed: _Optional[float] = ..., FanVoltage: _Optional[float] = ..., HighCellVoltage: _Optional[float] = ..., HighCellVoltageId: _Optional[float] = ..., HighTemperature: _Optional[float] = ..., HighThermistorId: _Optional[float] = ..., Input12V: _Optional[float] = ..., InternalTemperature: _Optional[float] = ..., IsChargingSignalStatus: bool = ..., IsReadySignalStatus: bool = ..., LowCellVoltage: _Optional[float] = ..., LowCellVoltageId: _Optional[float] = ..., LowTemperature: _Optional[float] = ..., LowThermistorId: _Optional[float] = ..., MalfunctionIndicatorActive: bool = ..., MaximumCellVoltage: _Optional[float] = ..., MaximumPackVoltage: _Optional[float] = ..., MinimumCellVoltage: _Optional[float] = ..., MinimumPackVoltage: _Optional[float] = ..., MultiPurposeInputSignalStatus: bool = ..., PackAmphours: _Optional[float] = ..., PackCurrent: _Optional[float] = ..., PackDepthOfDischarge: _Optional[float] = ..., PackStateOfCharge: _Optional[float] = ..., PackVoltage: _Optional[float] = ..., PopulatedCells: _Optional[float] = ..., RequestedFanSpeed: _Optional[float] = ...) -> None: ...
 
-class IBMSRelayStatusFlags(_message.Message):
-    __slots__ = ("AlwaysOnSignalStatus", "ChargeRelayEnabled", "ChargerSafetyEnabled", "DischargeRelayEnabled", "IsChargingSignalStatus", "IsReadySignalStatus", "MalfunctionIndicatorActive", "MultiPurposeInputSignalStatus")
-    ALWAYSONSIGNALSTATUS_FIELD_NUMBER: _ClassVar[int]
-    CHARGERELAYENABLED_FIELD_NUMBER: _ClassVar[int]
-    CHARGERSAFETYENABLED_FIELD_NUMBER: _ClassVar[int]
-    DISCHARGERELAYENABLED_FIELD_NUMBER: _ClassVar[int]
-    ISCHARGINGSIGNALSTATUS_FIELD_NUMBER: _ClassVar[int]
-    ISREADYSIGNALSTATUS_FIELD_NUMBER: _ClassVar[int]
-    MALFUNCTIONINDICATORACTIVE_FIELD_NUMBER: _ClassVar[int]
-    MULTIPURPOSEINPUTSIGNALSTATUS_FIELD_NUMBER: _ClassVar[int]
-    AlwaysOnSignalStatus: bool
-    ChargeRelayEnabled: bool
-    ChargerSafetyEnabled: bool
-    DischargeRelayEnabled: bool
-    IsChargingSignalStatus: bool
-    IsReadySignalStatus: bool
-    MalfunctionIndicatorActive: bool
-    MultiPurposeInputSignalStatus: bool
-    def __init__(self, AlwaysOnSignalStatus: bool = ..., ChargeRelayEnabled: bool = ..., ChargerSafetyEnabled: bool = ..., DischargeRelayEnabled: bool = ..., IsChargingSignalStatus: bool = ..., IsReadySignalStatus: bool = ..., MalfunctionIndicatorActive: bool = ..., MultiPurposeInputSignalStatus: bool = ...) -> None: ...
+class B3(_message.Message):
+    __slots__ = ("Acceleration", "B3Heartbeat", "BrakeLightSignalStatus", "BrakeSwitchDigital", "DaytimeRunningLightSignalStatus", "ForwardDigital", "HandbrakeSwitchDigital", "HazardLightsInput", "HeadightsSwitchInput", "HeadlightSignalStatus", "HornSignalStatus", "HornSwitchDigital", "LapDigital", "LeftSignalInput", "LeftSignalStatus", "MotorResetDigital", "NeutralDigital", "RaceModeDigital", "RegenBraking", "ReverseDigital", "RightSignalInput", "RightSignalStatus")
+    ACCELERATION_FIELD_NUMBER: _ClassVar[int]
+    B3HEARTBEAT_FIELD_NUMBER: _ClassVar[int]
+    BRAKELIGHTSIGNALSTATUS_FIELD_NUMBER: _ClassVar[int]
+    BRAKESWITCHDIGITAL_FIELD_NUMBER: _ClassVar[int]
+    DAYTIMERUNNINGLIGHTSIGNALSTATUS_FIELD_NUMBER: _ClassVar[int]
+    FORWARDDIGITAL_FIELD_NUMBER: _ClassVar[int]
+    HANDBRAKESWITCHDIGITAL_FIELD_NUMBER: _ClassVar[int]
+    HAZARDLIGHTSINPUT_FIELD_NUMBER: _ClassVar[int]
+    HEADIGHTSSWITCHINPUT_FIELD_NUMBER: _ClassVar[int]
+    HEADLIGHTSIGNALSTATUS_FIELD_NUMBER: _ClassVar[int]
+    HORNSIGNALSTATUS_FIELD_NUMBER: _ClassVar[int]
+    HORNSWITCHDIGITAL_FIELD_NUMBER: _ClassVar[int]
+    LAPDIGITAL_FIELD_NUMBER: _ClassVar[int]
+    LEFTSIGNALINPUT_FIELD_NUMBER: _ClassVar[int]
+    LEFTSIGNALSTATUS_FIELD_NUMBER: _ClassVar[int]
+    MOTORRESETDIGITAL_FIELD_NUMBER: _ClassVar[int]
+    NEUTRALDIGITAL_FIELD_NUMBER: _ClassVar[int]
+    RACEMODEDIGITAL_FIELD_NUMBER: _ClassVar[int]
+    REGENBRAKING_FIELD_NUMBER: _ClassVar[int]
+    REVERSEDIGITAL_FIELD_NUMBER: _ClassVar[int]
+    RIGHTSIGNALINPUT_FIELD_NUMBER: _ClassVar[int]
+    RIGHTSIGNALSTATUS_FIELD_NUMBER: _ClassVar[int]
+    Acceleration: float
+    B3Heartbeat: bool
+    BrakeLightSignalStatus: bool
+    BrakeSwitchDigital: bool
+    DaytimeRunningLightSignalStatus: bool
+    ForwardDigital: bool
+    HandbrakeSwitchDigital: bool
+    HazardLightsInput: bool
+    HeadightsSwitchInput: bool
+    HeadlightSignalStatus: bool
+    HornSignalStatus: bool
+    HornSwitchDigital: bool
+    LapDigital: bool
+    LeftSignalInput: bool
+    LeftSignalStatus: bool
+    MotorResetDigital: bool
+    NeutralDigital: bool
+    RaceModeDigital: bool
+    RegenBraking: float
+    ReverseDigital: bool
+    RightSignalInput: bool
+    RightSignalStatus: bool
+    def __init__(self, Acceleration: _Optional[float] = ..., B3Heartbeat: bool = ..., BrakeLightSignalStatus: bool = ..., BrakeSwitchDigital: bool = ..., DaytimeRunningLightSignalStatus: bool = ..., ForwardDigital: bool = ..., HandbrakeSwitchDigital: bool = ..., HazardLightsInput: bool = ..., HeadightsSwitchInput: bool = ..., HeadlightSignalStatus: bool = ..., HornSignalStatus: bool = ..., HornSwitchDigital: bool = ..., LapDigital: bool = ..., LeftSignalInput: bool = ..., LeftSignalStatus: bool = ..., MotorResetDigital: bool = ..., NeutralDigital: bool = ..., RaceModeDigital: bool = ..., RegenBraking: _Optional[float] = ..., ReverseDigital: bool = ..., RightSignalInput: bool = ..., RightSignalStatus: bool = ...) -> None: ...
+
+class KeyMotor(_message.Message):
+    __slots__ = ("BusCurrentOut", "KeyMotorVelocity", "MotorCurrent")
+    BUSCURRENTOUT_FIELD_NUMBER: _ClassVar[int]
+    KEYMOTORVELOCITY_FIELD_NUMBER: _ClassVar[int]
+    MOTORCURRENT_FIELD_NUMBER: _ClassVar[int]
+    BusCurrentOut: float
+    KeyMotorVelocity: float
+    MotorCurrent: float
+    def __init__(self, BusCurrentOut: _Optional[float] = ..., KeyMotorVelocity: _Optional[float] = ..., MotorCurrent: _Optional[float] = ...) -> None: ...
+
+class MBMS(_message.Message):
+    __slots__ = ("AbattDisable", "ArrayContactorCommand", "ArrayHeartbeatDeadTrip", "ArrayHighCurrentTrip", "ArrayHighCurrentWarning", "AuxiliaryBatteryVoltage", "CanOc12VWarning", "ChargeContactorCommand", "ChargeEnable", "ChargeHeartbeatDeadTrip", "ChargeHighCurrentTrip", "ChargeHighCurrentWarning", "ChargeSafety", "ChargeShouldTrip", "ChgFault", "ChgLvEn", "ChgOn", "CommonContactorCommand", "CommonHeartbeatDeadTrip", "CommonHighCurrentTrip", "CommonHighCurrentWarning", "ContactorConnectedUnexpectedlyTrip", "ContactorDisconnectedUnexpectedlyTrip", "DcdcFault", "DcdcOn", "DischargeEnable", "DischargeShouldTrip", "En1", "EsdEnabledTrip", "ExternalShutdown", "Heartbeat", "HighCellVoltageTrip", "HighCellVoltageWarning", "HighTemperatureTrip", "HighTemperatureWarning", "Key", "LowCellVoltageTrip", "LowCellVoltageWarning", "LowTemperatureTrip", "LowTemperatureWarning", "LvContactorCommand", "LvHeartbeatDeadTrip", "LvHighCurrentTrip", "LvHighCurrentWarning", "MainPowerSwitch", "MotorContactorCommand", "MotorHeartbeatDeadTrip", "MotorHighCurrentTrip", "MotorHighCurrentWarning", "MpsDisabledTrip", "OrionCanReceivedRecently", "OrionMessageTimeoutTrip", "ProtectionTrip", "StartupState", "StrobeBmsLight", "SystemState", "ThreeAOc")
+    ABATTDISABLE_FIELD_NUMBER: _ClassVar[int]
+    ARRAYCONTACTORCOMMAND_FIELD_NUMBER: _ClassVar[int]
+    ARRAYHEARTBEATDEADTRIP_FIELD_NUMBER: _ClassVar[int]
+    ARRAYHIGHCURRENTTRIP_FIELD_NUMBER: _ClassVar[int]
+    ARRAYHIGHCURRENTWARNING_FIELD_NUMBER: _ClassVar[int]
+    AUXILIARYBATTERYVOLTAGE_FIELD_NUMBER: _ClassVar[int]
+    CANOC12VWARNING_FIELD_NUMBER: _ClassVar[int]
+    CHARGECONTACTORCOMMAND_FIELD_NUMBER: _ClassVar[int]
+    CHARGEENABLE_FIELD_NUMBER: _ClassVar[int]
+    CHARGEHEARTBEATDEADTRIP_FIELD_NUMBER: _ClassVar[int]
+    CHARGEHIGHCURRENTTRIP_FIELD_NUMBER: _ClassVar[int]
+    CHARGEHIGHCURRENTWARNING_FIELD_NUMBER: _ClassVar[int]
+    CHARGESAFETY_FIELD_NUMBER: _ClassVar[int]
+    CHARGESHOULDTRIP_FIELD_NUMBER: _ClassVar[int]
+    CHGFAULT_FIELD_NUMBER: _ClassVar[int]
+    CHGLVEN_FIELD_NUMBER: _ClassVar[int]
+    CHGON_FIELD_NUMBER: _ClassVar[int]
+    COMMONCONTACTORCOMMAND_FIELD_NUMBER: _ClassVar[int]
+    COMMONHEARTBEATDEADTRIP_FIELD_NUMBER: _ClassVar[int]
+    COMMONHIGHCURRENTTRIP_FIELD_NUMBER: _ClassVar[int]
+    COMMONHIGHCURRENTWARNING_FIELD_NUMBER: _ClassVar[int]
+    CONTACTORCONNECTEDUNEXPECTEDLYTRIP_FIELD_NUMBER: _ClassVar[int]
+    CONTACTORDISCONNECTEDUNEXPECTEDLYTRIP_FIELD_NUMBER: _ClassVar[int]
+    DCDCFAULT_FIELD_NUMBER: _ClassVar[int]
+    DCDCON_FIELD_NUMBER: _ClassVar[int]
+    DISCHARGEENABLE_FIELD_NUMBER: _ClassVar[int]
+    DISCHARGESHOULDTRIP_FIELD_NUMBER: _ClassVar[int]
+    EN1_FIELD_NUMBER: _ClassVar[int]
+    ESDENABLEDTRIP_FIELD_NUMBER: _ClassVar[int]
+    EXTERNALSHUTDOWN_FIELD_NUMBER: _ClassVar[int]
+    HEARTBEAT_FIELD_NUMBER: _ClassVar[int]
+    HIGHCELLVOLTAGETRIP_FIELD_NUMBER: _ClassVar[int]
+    HIGHCELLVOLTAGEWARNING_FIELD_NUMBER: _ClassVar[int]
+    HIGHTEMPERATURETRIP_FIELD_NUMBER: _ClassVar[int]
+    HIGHTEMPERATUREWARNING_FIELD_NUMBER: _ClassVar[int]
+    KEY_FIELD_NUMBER: _ClassVar[int]
+    LOWCELLVOLTAGETRIP_FIELD_NUMBER: _ClassVar[int]
+    LOWCELLVOLTAGEWARNING_FIELD_NUMBER: _ClassVar[int]
+    LOWTEMPERATURETRIP_FIELD_NUMBER: _ClassVar[int]
+    LOWTEMPERATUREWARNING_FIELD_NUMBER: _ClassVar[int]
+    LVCONTACTORCOMMAND_FIELD_NUMBER: _ClassVar[int]
+    LVHEARTBEATDEADTRIP_FIELD_NUMBER: _ClassVar[int]
+    LVHIGHCURRENTTRIP_FIELD_NUMBER: _ClassVar[int]
+    LVHIGHCURRENTWARNING_FIELD_NUMBER: _ClassVar[int]
+    MAINPOWERSWITCH_FIELD_NUMBER: _ClassVar[int]
+    MOTORCONTACTORCOMMAND_FIELD_NUMBER: _ClassVar[int]
+    MOTORHEARTBEATDEADTRIP_FIELD_NUMBER: _ClassVar[int]
+    MOTORHIGHCURRENTTRIP_FIELD_NUMBER: _ClassVar[int]
+    MOTORHIGHCURRENTWARNING_FIELD_NUMBER: _ClassVar[int]
+    MPSDISABLEDTRIP_FIELD_NUMBER: _ClassVar[int]
+    ORIONCANRECEIVEDRECENTLY_FIELD_NUMBER: _ClassVar[int]
+    ORIONMESSAGETIMEOUTTRIP_FIELD_NUMBER: _ClassVar[int]
+    PROTECTIONTRIP_FIELD_NUMBER: _ClassVar[int]
+    STARTUPSTATE_FIELD_NUMBER: _ClassVar[int]
+    STROBEBMSLIGHT_FIELD_NUMBER: _ClassVar[int]
+    SYSTEMSTATE_FIELD_NUMBER: _ClassVar[int]
+    THREEAOC_FIELD_NUMBER: _ClassVar[int]
+    AbattDisable: bool
+    ArrayContactorCommand: bool
+    ArrayHeartbeatDeadTrip: bool
+    ArrayHighCurrentTrip: bool
+    ArrayHighCurrentWarning: bool
+    AuxiliaryBatteryVoltage: float
+    CanOc12VWarning: bool
+    ChargeContactorCommand: bool
+    ChargeEnable: bool
+    ChargeHeartbeatDeadTrip: bool
+    ChargeHighCurrentTrip: bool
+    ChargeHighCurrentWarning: bool
+    ChargeSafety: bool
+    ChargeShouldTrip: bool
+    ChgFault: bool
+    ChgLvEn: bool
+    ChgOn: bool
+    CommonContactorCommand: bool
+    CommonHeartbeatDeadTrip: bool
+    CommonHighCurrentTrip: bool
+    CommonHighCurrentWarning: bool
+    ContactorConnectedUnexpectedlyTrip: bool
+    ContactorDisconnectedUnexpectedlyTrip: bool
+    DcdcFault: bool
+    DcdcOn: bool
+    DischargeEnable: bool
+    DischargeShouldTrip: bool
+    En1: bool
+    EsdEnabledTrip: bool
+    ExternalShutdown: bool
+    Heartbeat: bool
+    HighCellVoltageTrip: bool
+    HighCellVoltageWarning: bool
+    HighTemperatureTrip: bool
+    HighTemperatureWarning: bool
+    Key: bool
+    LowCellVoltageTrip: bool
+    LowCellVoltageWarning: bool
+    LowTemperatureTrip: bool
+    LowTemperatureWarning: bool
+    LvContactorCommand: bool
+    LvHeartbeatDeadTrip: bool
+    LvHighCurrentTrip: bool
+    LvHighCurrentWarning: bool
+    MainPowerSwitch: bool
+    MotorContactorCommand: bool
+    MotorHeartbeatDeadTrip: bool
+    MotorHighCurrentTrip: bool
+    MotorHighCurrentWarning: bool
+    MpsDisabledTrip: bool
+    OrionCanReceivedRecently: bool
+    OrionMessageTimeoutTrip: bool
+    ProtectionTrip: bool
+    StartupState: float
+    StrobeBmsLight: bool
+    SystemState: float
+    ThreeAOc: bool
+    def __init__(self, AbattDisable: bool = ..., ArrayContactorCommand: bool = ..., ArrayHeartbeatDeadTrip: bool = ..., ArrayHighCurrentTrip: bool = ..., ArrayHighCurrentWarning: bool = ..., AuxiliaryBatteryVoltage: _Optional[float] = ..., CanOc12VWarning: bool = ..., ChargeContactorCommand: bool = ..., ChargeEnable: bool = ..., ChargeHeartbeatDeadTrip: bool = ..., ChargeHighCurrentTrip: bool = ..., ChargeHighCurrentWarning: bool = ..., ChargeSafety: bool = ..., ChargeShouldTrip: bool = ..., ChgFault: bool = ..., ChgLvEn: bool = ..., ChgOn: bool = ..., CommonContactorCommand: bool = ..., CommonHeartbeatDeadTrip: bool = ..., CommonHighCurrentTrip: bool = ..., CommonHighCurrentWarning: bool = ..., ContactorConnectedUnexpectedlyTrip: bool = ..., ContactorDisconnectedUnexpectedlyTrip: bool = ..., DcdcFault: bool = ..., DcdcOn: bool = ..., DischargeEnable: bool = ..., DischargeShouldTrip: bool = ..., En1: bool = ..., EsdEnabledTrip: bool = ..., ExternalShutdown: bool = ..., Heartbeat: bool = ..., HighCellVoltageTrip: bool = ..., HighCellVoltageWarning: bool = ..., HighTemperatureTrip: bool = ..., HighTemperatureWarning: bool = ..., Key: bool = ..., LowCellVoltageTrip: bool = ..., LowCellVoltageWarning: bool = ..., LowTemperatureTrip: bool = ..., LowTemperatureWarning: bool = ..., LvContactorCommand: bool = ..., LvHeartbeatDeadTrip: bool = ..., LvHighCurrentTrip: bool = ..., LvHighCurrentWarning: bool = ..., MainPowerSwitch: bool = ..., MotorContactorCommand: bool = ..., MotorHeartbeatDeadTrip: bool = ..., MotorHighCurrentTrip: bool = ..., MotorHighCurrentWarning: bool = ..., MpsDisabledTrip: bool = ..., OrionCanReceivedRecently: bool = ..., OrionMessageTimeoutTrip: bool = ..., ProtectionTrip: bool = ..., StartupState: _Optional[float] = ..., StrobeBmsLight: bool = ..., SystemState: _Optional[float] = ..., ThreeAOc: bool = ...) -> None: ...
+
+class MotorDetails(_message.Message):
+    __slots__ = ("ActiveMotor", "BEMF_D", "BEMF_Q", "BusCurrent", "BusVoltage", "DC_Bus_Ah", "DspBoardTemperature", "ErrorFlags", "HeatsinkTemperature", "Id", "Iq", "LimitFlags", "MotorId", "MotorTemperature", "MotorVelocity", "Odometer", "PhaseCurrentB", "PhaseCurrentC", "RxErrorCount", "SerialNumber", "SlipSpeed", "Supply15V", "Supply1V9", "Supply3V3", "TritiumId", "TxErrorCount", "Vd", "VehicleVelocity", "Vq")
+    ACTIVEMOTOR_FIELD_NUMBER: _ClassVar[int]
+    BEMF_D_FIELD_NUMBER: _ClassVar[int]
+    BEMF_Q_FIELD_NUMBER: _ClassVar[int]
+    BUSCURRENT_FIELD_NUMBER: _ClassVar[int]
+    BUSVOLTAGE_FIELD_NUMBER: _ClassVar[int]
+    DC_BUS_AH_FIELD_NUMBER: _ClassVar[int]
+    DSPBOARDTEMPERATURE_FIELD_NUMBER: _ClassVar[int]
+    ERRORFLAGS_FIELD_NUMBER: _ClassVar[int]
+    HEATSINKTEMPERATURE_FIELD_NUMBER: _ClassVar[int]
+    ID_FIELD_NUMBER: _ClassVar[int]
+    IQ_FIELD_NUMBER: _ClassVar[int]
+    LIMITFLAGS_FIELD_NUMBER: _ClassVar[int]
+    MOTORID_FIELD_NUMBER: _ClassVar[int]
+    MOTORTEMPERATURE_FIELD_NUMBER: _ClassVar[int]
+    MOTORVELOCITY_FIELD_NUMBER: _ClassVar[int]
+    ODOMETER_FIELD_NUMBER: _ClassVar[int]
+    PHASECURRENTB_FIELD_NUMBER: _ClassVar[int]
+    PHASECURRENTC_FIELD_NUMBER: _ClassVar[int]
+    RXERRORCOUNT_FIELD_NUMBER: _ClassVar[int]
+    SERIALNUMBER_FIELD_NUMBER: _ClassVar[int]
+    SLIPSPEED_FIELD_NUMBER: _ClassVar[int]
+    SUPPLY15V_FIELD_NUMBER: _ClassVar[int]
+    SUPPLY1V9_FIELD_NUMBER: _ClassVar[int]
+    SUPPLY3V3_FIELD_NUMBER: _ClassVar[int]
+    TRITIUMID_FIELD_NUMBER: _ClassVar[int]
+    TXERRORCOUNT_FIELD_NUMBER: _ClassVar[int]
+    VD_FIELD_NUMBER: _ClassVar[int]
+    VEHICLEVELOCITY_FIELD_NUMBER: _ClassVar[int]
+    VQ_FIELD_NUMBER: _ClassVar[int]
+    ActiveMotor: float
+    BEMF_D: float
+    BEMF_Q: float
+    BusCurrent: float
+    BusVoltage: float
+    DC_Bus_Ah: float
+    DspBoardTemperature: float
+    ErrorFlags: float
+    HeatsinkTemperature: float
+    Id: float
+    Iq: float
+    LimitFlags: float
+    MotorId: float
+    MotorTemperature: float
+    MotorVelocity: float
+    Odometer: float
+    PhaseCurrentB: float
+    PhaseCurrentC: float
+    RxErrorCount: float
+    SerialNumber: float
+    SlipSpeed: float
+    Supply15V: float
+    Supply1V9: float
+    Supply3V3: float
+    TritiumId: float
+    TxErrorCount: float
+    Vd: float
+    VehicleVelocity: float
+    Vq: float
+    def __init__(self, ActiveMotor: _Optional[float] = ..., BEMF_D: _Optional[float] = ..., BEMF_Q: _Optional[float] = ..., BusCurrent: _Optional[float] = ..., BusVoltage: _Optional[float] = ..., DC_Bus_Ah: _Optional[float] = ..., DspBoardTemperature: _Optional[float] = ..., ErrorFlags: _Optional[float] = ..., HeatsinkTemperature: _Optional[float] = ..., Id: _Optional[float] = ..., Iq: _Optional[float] = ..., LimitFlags: _Optional[float] = ..., MotorId: _Optional[float] = ..., MotorTemperature: _Optional[float] = ..., MotorVelocity: _Optional[float] = ..., Odometer: _Optional[float] = ..., PhaseCurrentB: _Optional[float] = ..., PhaseCurrentC: _Optional[float] = ..., RxErrorCount: _Optional[float] = ..., SerialNumber: _Optional[float] = ..., SlipSpeed: _Optional[float] = ..., Supply15V: _Optional[float] = ..., Supply1V9: _Optional[float] = ..., Supply3V3: _Optional[float] = ..., TritiumId: _Optional[float] = ..., TxErrorCount: _Optional[float] = ..., Vd: _Optional[float] = ..., VehicleVelocity: _Optional[float] = ..., Vq: _Optional[float] = ...) -> None: ...
+
+class MPPT(_message.Message):
+    __slots__ = ("Mppt0Ch0ArrayCurrent", "Mppt0Ch0ArrayVoltage", "Mppt0Ch0BatteryVoltage", "Mppt0Ch0UnitTemperature", "Mppt0Ch1ArrayCurrent", "Mppt0Ch1ArrayVoltage", "Mppt0Ch1BatteryVoltage", "Mppt0Ch1UnitTemperature", "Mppt1Ch0ArrayCurrent", "Mppt1Ch0ArrayVoltage", "Mppt1Ch0BatteryVoltage", "Mppt1Ch0UnitTemperature", "Mppt1Ch1ArrayCurrent", "Mppt1Ch1ArrayVoltage", "Mppt1Ch1BatteryVoltage", "Mppt1Ch1UnitTemperature", "Mppt2Ch0ArrayCurrent", "Mppt2Ch0ArrayVoltage", "Mppt2Ch0BatteryVoltage", "Mppt2Ch0UnitTemperature", "Mppt2Ch1ArrayCurrent", "Mppt2Ch1ArrayVoltage", "Mppt2Ch1BatteryVoltage", "Mppt2Ch1UnitTemperature", "Mppt3Ch0ArrayCurrent", "Mppt3Ch0ArrayVoltage", "Mppt3Ch0BatteryVoltage", "Mppt3Ch0UnitTemperature", "Mppt3Ch1ArrayCurrent", "Mppt3Ch1ArrayVoltage", "Mppt3Ch1BatteryVoltage", "Mppt3Ch1UnitTemperature")
+    MPPT0CH0ARRAYCURRENT_FIELD_NUMBER: _ClassVar[int]
+    MPPT0CH0ARRAYVOLTAGE_FIELD_NUMBER: _ClassVar[int]
+    MPPT0CH0BATTERYVOLTAGE_FIELD_NUMBER: _ClassVar[int]
+    MPPT0CH0UNITTEMPERATURE_FIELD_NUMBER: _ClassVar[int]
+    MPPT0CH1ARRAYCURRENT_FIELD_NUMBER: _ClassVar[int]
+    MPPT0CH1ARRAYVOLTAGE_FIELD_NUMBER: _ClassVar[int]
+    MPPT0CH1BATTERYVOLTAGE_FIELD_NUMBER: _ClassVar[int]
+    MPPT0CH1UNITTEMPERATURE_FIELD_NUMBER: _ClassVar[int]
+    MPPT1CH0ARRAYCURRENT_FIELD_NUMBER: _ClassVar[int]
+    MPPT1CH0ARRAYVOLTAGE_FIELD_NUMBER: _ClassVar[int]
+    MPPT1CH0BATTERYVOLTAGE_FIELD_NUMBER: _ClassVar[int]
+    MPPT1CH0UNITTEMPERATURE_FIELD_NUMBER: _ClassVar[int]
+    MPPT1CH1ARRAYCURRENT_FIELD_NUMBER: _ClassVar[int]
+    MPPT1CH1ARRAYVOLTAGE_FIELD_NUMBER: _ClassVar[int]
+    MPPT1CH1BATTERYVOLTAGE_FIELD_NUMBER: _ClassVar[int]
+    MPPT1CH1UNITTEMPERATURE_FIELD_NUMBER: _ClassVar[int]
+    MPPT2CH0ARRAYCURRENT_FIELD_NUMBER: _ClassVar[int]
+    MPPT2CH0ARRAYVOLTAGE_FIELD_NUMBER: _ClassVar[int]
+    MPPT2CH0BATTERYVOLTAGE_FIELD_NUMBER: _ClassVar[int]
+    MPPT2CH0UNITTEMPERATURE_FIELD_NUMBER: _ClassVar[int]
+    MPPT2CH1ARRAYCURRENT_FIELD_NUMBER: _ClassVar[int]
+    MPPT2CH1ARRAYVOLTAGE_FIELD_NUMBER: _ClassVar[int]
+    MPPT2CH1BATTERYVOLTAGE_FIELD_NUMBER: _ClassVar[int]
+    MPPT2CH1UNITTEMPERATURE_FIELD_NUMBER: _ClassVar[int]
+    MPPT3CH0ARRAYCURRENT_FIELD_NUMBER: _ClassVar[int]
+    MPPT3CH0ARRAYVOLTAGE_FIELD_NUMBER: _ClassVar[int]
+    MPPT3CH0BATTERYVOLTAGE_FIELD_NUMBER: _ClassVar[int]
+    MPPT3CH0UNITTEMPERATURE_FIELD_NUMBER: _ClassVar[int]
+    MPPT3CH1ARRAYCURRENT_FIELD_NUMBER: _ClassVar[int]
+    MPPT3CH1ARRAYVOLTAGE_FIELD_NUMBER: _ClassVar[int]
+    MPPT3CH1BATTERYVOLTAGE_FIELD_NUMBER: _ClassVar[int]
+    MPPT3CH1UNITTEMPERATURE_FIELD_NUMBER: _ClassVar[int]
+    Mppt0Ch0ArrayCurrent: float
+    Mppt0Ch0ArrayVoltage: float
+    Mppt0Ch0BatteryVoltage: float
+    Mppt0Ch0UnitTemperature: float
+    Mppt0Ch1ArrayCurrent: float
+    Mppt0Ch1ArrayVoltage: float
+    Mppt0Ch1BatteryVoltage: float
+    Mppt0Ch1UnitTemperature: float
+    Mppt1Ch0ArrayCurrent: float
+    Mppt1Ch0ArrayVoltage: float
+    Mppt1Ch0BatteryVoltage: float
+    Mppt1Ch0UnitTemperature: float
+    Mppt1Ch1ArrayCurrent: float
+    Mppt1Ch1ArrayVoltage: float
+    Mppt1Ch1BatteryVoltage: float
+    Mppt1Ch1UnitTemperature: float
+    Mppt2Ch0ArrayCurrent: float
+    Mppt2Ch0ArrayVoltage: float
+    Mppt2Ch0BatteryVoltage: float
+    Mppt2Ch0UnitTemperature: float
+    Mppt2Ch1ArrayCurrent: float
+    Mppt2Ch1ArrayVoltage: float
+    Mppt2Ch1BatteryVoltage: float
+    Mppt2Ch1UnitTemperature: float
+    Mppt3Ch0ArrayCurrent: float
+    Mppt3Ch0ArrayVoltage: float
+    Mppt3Ch0BatteryVoltage: float
+    Mppt3Ch0UnitTemperature: float
+    Mppt3Ch1ArrayCurrent: float
+    Mppt3Ch1ArrayVoltage: float
+    Mppt3Ch1BatteryVoltage: float
+    Mppt3Ch1UnitTemperature: float
+    def __init__(self, Mppt0Ch0ArrayCurrent: _Optional[float] = ..., Mppt0Ch0ArrayVoltage: _Optional[float] = ..., Mppt0Ch0BatteryVoltage: _Optional[float] = ..., Mppt0Ch0UnitTemperature: _Optional[float] = ..., Mppt0Ch1ArrayCurrent: _Optional[float] = ..., Mppt0Ch1ArrayVoltage: _Optional[float] = ..., Mppt0Ch1BatteryVoltage: _Optional[float] = ..., Mppt0Ch1UnitTemperature: _Optional[float] = ..., Mppt1Ch0ArrayCurrent: _Optional[float] = ..., Mppt1Ch0ArrayVoltage: _Optional[float] = ..., Mppt1Ch0BatteryVoltage: _Optional[float] = ..., Mppt1Ch0UnitTemperature: _Optional[float] = ..., Mppt1Ch1ArrayCurrent: _Optional[float] = ..., Mppt1Ch1ArrayVoltage: _Optional[float] = ..., Mppt1Ch1BatteryVoltage: _Optional[float] = ..., Mppt1Ch1UnitTemperature: _Optional[float] = ..., Mppt2Ch0ArrayCurrent: _Optional[float] = ..., Mppt2Ch0ArrayVoltage: _Optional[float] = ..., Mppt2Ch0BatteryVoltage: _Optional[float] = ..., Mppt2Ch0UnitTemperature: _Optional[float] = ..., Mppt2Ch1ArrayCurrent: _Optional[float] = ..., Mppt2Ch1ArrayVoltage: _Optional[float] = ..., Mppt2Ch1BatteryVoltage: _Optional[float] = ..., Mppt2Ch1UnitTemperature: _Optional[float] = ..., Mppt3Ch0ArrayCurrent: _Optional[float] = ..., Mppt3Ch0ArrayVoltage: _Optional[float] = ..., Mppt3Ch0BatteryVoltage: _Optional[float] = ..., Mppt3Ch0UnitTemperature: _Optional[float] = ..., Mppt3Ch1ArrayCurrent: _Optional[float] = ..., Mppt3Ch1ArrayVoltage: _Optional[float] = ..., Mppt3Ch1BatteryVoltage: _Optional[float] = ..., Mppt3Ch1UnitTemperature: _Optional[float] = ...) -> None: ...
+
+class ContactorStatus(_message.Message):
+    __slots__ = ("ArrayBPSError", "ArrayChargeCurrent", "ArrayContactorClosed", "ArrayContactorClosing", "ArrayContactorError", "ArrayHeartbeat", "ArrayLineCurrent", "ArrayPrechargerClosed", "ArrayPrechargerClosing", "ArrayPrechargerError", "ChargeBPSError", "ChargeChargeCurrent", "ChargeContactorClosed", "ChargeContactorClosing", "ChargeContactorError", "ChargeHeartbeat", "ChargeLineCurrent", "ChargePrechargerClosed", "ChargePrechargerClosing", "ChargePrechargerError", "CommonChargeCurrent", "CommonContactorClosed", "CommonContactorClosing", "CommonContactorError", "CommonContactorOpeningError", "CommonHeartbeat", "CommonLineCurrent", "CommonPrechargerClosed", "CommonPrechargerClosing", "CommonPrechargerError", "LvBpsError", "LvChargeCurrent", "LvContactorClosed", "LvContactorClosing", "LvContactorError", "LvHeartbeat", "LvLineCurrent", "LvPrechargerClosed", "LvPrechargerClosing", "LvPrechargerError", "MotorBPSError", "MotorChargeCurrent", "MotorContactorClosed", "MotorContactorClosing", "MotorContactorError", "MotorHeartbeat", "MotorLineCurrent", "MotorPrechargerClosed", "MotorPrechargerClosing", "MotorPrechargerError")
+    ARRAYBPSERROR_FIELD_NUMBER: _ClassVar[int]
+    ARRAYCHARGECURRENT_FIELD_NUMBER: _ClassVar[int]
+    ARRAYCONTACTORCLOSED_FIELD_NUMBER: _ClassVar[int]
+    ARRAYCONTACTORCLOSING_FIELD_NUMBER: _ClassVar[int]
+    ARRAYCONTACTORERROR_FIELD_NUMBER: _ClassVar[int]
+    ARRAYHEARTBEAT_FIELD_NUMBER: _ClassVar[int]
+    ARRAYLINECURRENT_FIELD_NUMBER: _ClassVar[int]
+    ARRAYPRECHARGERCLOSED_FIELD_NUMBER: _ClassVar[int]
+    ARRAYPRECHARGERCLOSING_FIELD_NUMBER: _ClassVar[int]
+    ARRAYPRECHARGERERROR_FIELD_NUMBER: _ClassVar[int]
+    CHARGEBPSERROR_FIELD_NUMBER: _ClassVar[int]
+    CHARGECHARGECURRENT_FIELD_NUMBER: _ClassVar[int]
+    CHARGECONTACTORCLOSED_FIELD_NUMBER: _ClassVar[int]
+    CHARGECONTACTORCLOSING_FIELD_NUMBER: _ClassVar[int]
+    CHARGECONTACTORERROR_FIELD_NUMBER: _ClassVar[int]
+    CHARGEHEARTBEAT_FIELD_NUMBER: _ClassVar[int]
+    CHARGELINECURRENT_FIELD_NUMBER: _ClassVar[int]
+    CHARGEPRECHARGERCLOSED_FIELD_NUMBER: _ClassVar[int]
+    CHARGEPRECHARGERCLOSING_FIELD_NUMBER: _ClassVar[int]
+    CHARGEPRECHARGERERROR_FIELD_NUMBER: _ClassVar[int]
+    COMMONCHARGECURRENT_FIELD_NUMBER: _ClassVar[int]
+    COMMONCONTACTORCLOSED_FIELD_NUMBER: _ClassVar[int]
+    COMMONCONTACTORCLOSING_FIELD_NUMBER: _ClassVar[int]
+    COMMONCONTACTORERROR_FIELD_NUMBER: _ClassVar[int]
+    COMMONCONTACTOROPENINGERROR_FIELD_NUMBER: _ClassVar[int]
+    COMMONHEARTBEAT_FIELD_NUMBER: _ClassVar[int]
+    COMMONLINECURRENT_FIELD_NUMBER: _ClassVar[int]
+    COMMONPRECHARGERCLOSED_FIELD_NUMBER: _ClassVar[int]
+    COMMONPRECHARGERCLOSING_FIELD_NUMBER: _ClassVar[int]
+    COMMONPRECHARGERERROR_FIELD_NUMBER: _ClassVar[int]
+    LVBPSERROR_FIELD_NUMBER: _ClassVar[int]
+    LVCHARGECURRENT_FIELD_NUMBER: _ClassVar[int]
+    LVCONTACTORCLOSED_FIELD_NUMBER: _ClassVar[int]
+    LVCONTACTORCLOSING_FIELD_NUMBER: _ClassVar[int]
+    LVCONTACTORERROR_FIELD_NUMBER: _ClassVar[int]
+    LVHEARTBEAT_FIELD_NUMBER: _ClassVar[int]
+    LVLINECURRENT_FIELD_NUMBER: _ClassVar[int]
+    LVPRECHARGERCLOSED_FIELD_NUMBER: _ClassVar[int]
+    LVPRECHARGERCLOSING_FIELD_NUMBER: _ClassVar[int]
+    LVPRECHARGERERROR_FIELD_NUMBER: _ClassVar[int]
+    MOTORBPSERROR_FIELD_NUMBER: _ClassVar[int]
+    MOTORCHARGECURRENT_FIELD_NUMBER: _ClassVar[int]
+    MOTORCONTACTORCLOSED_FIELD_NUMBER: _ClassVar[int]
+    MOTORCONTACTORCLOSING_FIELD_NUMBER: _ClassVar[int]
+    MOTORCONTACTORERROR_FIELD_NUMBER: _ClassVar[int]
+    MOTORHEARTBEAT_FIELD_NUMBER: _ClassVar[int]
+    MOTORLINECURRENT_FIELD_NUMBER: _ClassVar[int]
+    MOTORPRECHARGERCLOSED_FIELD_NUMBER: _ClassVar[int]
+    MOTORPRECHARGERCLOSING_FIELD_NUMBER: _ClassVar[int]
+    MOTORPRECHARGERERROR_FIELD_NUMBER: _ClassVar[int]
+    ArrayBPSError: bool
+    ArrayChargeCurrent: float
+    ArrayContactorClosed: bool
+    ArrayContactorClosing: bool
+    ArrayContactorError: bool
+    ArrayHeartbeat: bool
+    ArrayLineCurrent: float
+    ArrayPrechargerClosed: bool
+    ArrayPrechargerClosing: bool
+    ArrayPrechargerError: bool
+    ChargeBPSError: bool
+    ChargeChargeCurrent: float
+    ChargeContactorClosed: bool
+    ChargeContactorClosing: bool
+    ChargeContactorError: bool
+    ChargeHeartbeat: bool
+    ChargeLineCurrent: float
+    ChargePrechargerClosed: bool
+    ChargePrechargerClosing: bool
+    ChargePrechargerError: bool
+    CommonChargeCurrent: float
+    CommonContactorClosed: bool
+    CommonContactorClosing: bool
+    CommonContactorError: bool
+    CommonContactorOpeningError: bool
+    CommonHeartbeat: bool
+    CommonLineCurrent: float
+    CommonPrechargerClosed: bool
+    CommonPrechargerClosing: bool
+    CommonPrechargerError: bool
+    LvBpsError: bool
+    LvChargeCurrent: float
+    LvContactorClosed: bool
+    LvContactorClosing: bool
+    LvContactorError: bool
+    LvHeartbeat: bool
+    LvLineCurrent: float
+    LvPrechargerClosed: bool
+    LvPrechargerClosing: bool
+    LvPrechargerError: bool
+    MotorBPSError: bool
+    MotorChargeCurrent: float
+    MotorContactorClosed: bool
+    MotorContactorClosing: bool
+    MotorContactorError: bool
+    MotorHeartbeat: bool
+    MotorLineCurrent: float
+    MotorPrechargerClosed: bool
+    MotorPrechargerClosing: bool
+    MotorPrechargerError: bool
+    def __init__(self, ArrayBPSError: bool = ..., ArrayChargeCurrent: _Optional[float] = ..., ArrayContactorClosed: bool = ..., ArrayContactorClosing: bool = ..., ArrayContactorError: bool = ..., ArrayHeartbeat: bool = ..., ArrayLineCurrent: _Optional[float] = ..., ArrayPrechargerClosed: bool = ..., ArrayPrechargerClosing: bool = ..., ArrayPrechargerError: bool = ..., ChargeBPSError: bool = ..., ChargeChargeCurrent: _Optional[float] = ..., ChargeContactorClosed: bool = ..., ChargeContactorClosing: bool = ..., ChargeContactorError: bool = ..., ChargeHeartbeat: bool = ..., ChargeLineCurrent: _Optional[float] = ..., ChargePrechargerClosed: bool = ..., ChargePrechargerClosing: bool = ..., ChargePrechargerError: bool = ..., CommonChargeCurrent: _Optional[float] = ..., CommonContactorClosed: bool = ..., CommonContactorClosing: bool = ..., CommonContactorError: bool = ..., CommonContactorOpeningError: bool = ..., CommonHeartbeat: bool = ..., CommonLineCurrent: _Optional[float] = ..., CommonPrechargerClosed: bool = ..., CommonPrechargerClosing: bool = ..., CommonPrechargerError: bool = ..., LvBpsError: bool = ..., LvChargeCurrent: _Optional[float] = ..., LvContactorClosed: bool = ..., LvContactorClosing: bool = ..., LvContactorError: bool = ..., LvHeartbeat: bool = ..., LvLineCurrent: _Optional[float] = ..., LvPrechargerClosed: bool = ..., LvPrechargerClosing: bool = ..., LvPrechargerError: bool = ..., MotorBPSError: bool = ..., MotorChargeCurrent: _Optional[float] = ..., MotorContactorClosed: bool = ..., MotorContactorClosing: bool = ..., MotorContactorError: bool = ..., MotorHeartbeat: bool = ..., MotorLineCurrent: _Optional[float] = ..., MotorPrechargerClosed: bool = ..., MotorPrechargerClosing: bool = ..., MotorPrechargerError: bool = ...) -> None: ...
+
+class Pi(_message.Message):
+    __slots__ = ("Rfid",)
+    RFID_FIELD_NUMBER: _ClassVar[int]
+    Rfid: str
+    def __init__(self, Rfid: _Optional[str] = ...) -> None: ...
+
+class ProximitySensors(_message.Message):
+    __slots__ = ("ProximitySensor1", "ProximitySensor2", "ProximitySensor3", "ProximitySensor4")
+    PROXIMITYSENSOR1_FIELD_NUMBER: _ClassVar[int]
+    PROXIMITYSENSOR2_FIELD_NUMBER: _ClassVar[int]
+    PROXIMITYSENSOR3_FIELD_NUMBER: _ClassVar[int]
+    PROXIMITYSENSOR4_FIELD_NUMBER: _ClassVar[int]
+    ProximitySensor1: float
+    ProximitySensor2: float
+    ProximitySensor3: float
+    ProximitySensor4: float
+    def __init__(self, ProximitySensor1: _Optional[float] = ..., ProximitySensor2: _Optional[float] = ..., ProximitySensor3: _Optional[float] = ..., ProximitySensor4: _Optional[float] = ...) -> None: ...
+
+class Telemetry(_message.Message):
+    __slots__ = ("GpsAdditionalFlags", "GpsDay", "GpsFixStatusFlags", "GpsHour", "GpsLatitude", "GpsLongitude", "GpsMinute", "GpsMonth", "GpsSecond", "GpsValidityFlags", "GpsYear", "MpuAccelerationX", "MpuAccelerationY", "MpuAccelerationZ", "MpuRotationX", "MpuRotationY", "MpuRotationZ", "MpuTemperature")
+    GPSADDITIONALFLAGS_FIELD_NUMBER: _ClassVar[int]
+    GPSDAY_FIELD_NUMBER: _ClassVar[int]
+    GPSFIXSTATUSFLAGS_FIELD_NUMBER: _ClassVar[int]
+    GPSHOUR_FIELD_NUMBER: _ClassVar[int]
+    GPSLATITUDE_FIELD_NUMBER: _ClassVar[int]
+    GPSLONGITUDE_FIELD_NUMBER: _ClassVar[int]
+    GPSMINUTE_FIELD_NUMBER: _ClassVar[int]
+    GPSMONTH_FIELD_NUMBER: _ClassVar[int]
+    GPSSECOND_FIELD_NUMBER: _ClassVar[int]
+    GPSVALIDITYFLAGS_FIELD_NUMBER: _ClassVar[int]
+    GPSYEAR_FIELD_NUMBER: _ClassVar[int]
+    MPUACCELERATIONX_FIELD_NUMBER: _ClassVar[int]
+    MPUACCELERATIONY_FIELD_NUMBER: _ClassVar[int]
+    MPUACCELERATIONZ_FIELD_NUMBER: _ClassVar[int]
+    MPUROTATIONX_FIELD_NUMBER: _ClassVar[int]
+    MPUROTATIONY_FIELD_NUMBER: _ClassVar[int]
+    MPUROTATIONZ_FIELD_NUMBER: _ClassVar[int]
+    MPUTEMPERATURE_FIELD_NUMBER: _ClassVar[int]
+    GpsAdditionalFlags: float
+    GpsDay: float
+    GpsFixStatusFlags: float
+    GpsHour: float
+    GpsLatitude: float
+    GpsLongitude: float
+    GpsMinute: float
+    GpsMonth: float
+    GpsSecond: float
+    GpsValidityFlags: float
+    GpsYear: float
+    MpuAccelerationX: float
+    MpuAccelerationY: float
+    MpuAccelerationZ: float
+    MpuRotationX: float
+    MpuRotationY: float
+    MpuRotationZ: float
+    MpuTemperature: float
+    def __init__(self, GpsAdditionalFlags: _Optional[float] = ..., GpsDay: _Optional[float] = ..., GpsFixStatusFlags: _Optional[float] = ..., GpsHour: _Optional[float] = ..., GpsLatitude: _Optional[float] = ..., GpsLongitude: _Optional[float] = ..., GpsMinute: _Optional[float] = ..., GpsMonth: _Optional[float] = ..., GpsSecond: _Optional[float] = ..., GpsValidityFlags: _Optional[float] = ..., GpsYear: _Optional[float] = ..., MpuAccelerationX: _Optional[float] = ..., MpuAccelerationY: _Optional[float] = ..., MpuAccelerationZ: _Optional[float] = ..., MpuRotationX: _Optional[float] = ..., MpuRotationY: _Optional[float] = ..., MpuRotationZ: _Optional[float] = ..., MpuTemperature: _Optional[float] = ...) -> None: ...
+
+class TelemetryData(_message.Message):
+    __slots__ = ("B3", "Battery", "BatteryFaults", "Contactor", "KeyMotor", "MBMS", "MPPT", "MotorDetails0", "MotorDetails1", "Pi", "ProximitySensors", "Telemetry", "TimeStamp", "Title")
+    B3_FIELD_NUMBER: _ClassVar[int]
+    BATTERY_FIELD_NUMBER: _ClassVar[int]
+    BATTERYFAULTS_FIELD_NUMBER: _ClassVar[int]
+    CONTACTOR_FIELD_NUMBER: _ClassVar[int]
+    KEYMOTOR_FIELD_NUMBER: _ClassVar[int]
+    MBMS_FIELD_NUMBER: _ClassVar[int]
+    MPPT_FIELD_NUMBER: _ClassVar[int]
+    MOTORDETAILS0_FIELD_NUMBER: _ClassVar[int]
+    MOTORDETAILS1_FIELD_NUMBER: _ClassVar[int]
+    PI_FIELD_NUMBER: _ClassVar[int]
+    PROXIMITYSENSORS_FIELD_NUMBER: _ClassVar[int]
+    TELEMETRY_FIELD_NUMBER: _ClassVar[int]
+    TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
+    TITLE_FIELD_NUMBER: _ClassVar[int]
+    B3: B3
+    Battery: BatteryStatus
+    BatteryFaults: BatteryFaults
+    Contactor: ContactorStatus
+    KeyMotor: KeyMotor
+    MBMS: MBMS
+    MPPT: MPPT
+    MotorDetails0: MotorDetails
+    MotorDetails1: MotorDetails
+    Pi: Pi
+    ProximitySensors: ProximitySensors
+    Telemetry: Telemetry
+    TimeStamp: int
+    Title: str
+    def __init__(self, B3: _Optional[_Union[B3, _Mapping]] = ..., Battery: _Optional[_Union[BatteryStatus, _Mapping]] = ..., BatteryFaults: _Optional[_Union[BatteryFaults, _Mapping]] = ..., Contactor: _Optional[_Union[ContactorStatus, _Mapping]] = ..., KeyMotor: _Optional[_Union[KeyMotor, _Mapping]] = ..., MBMS: _Optional[_Union[MBMS, _Mapping]] = ..., MPPT: _Optional[_Union[MPPT, _Mapping]] = ..., MotorDetails0: _Optional[_Union[MotorDetails, _Mapping]] = ..., MotorDetails1: _Optional[_Union[MotorDetails, _Mapping]] = ..., Pi: _Optional[_Union[Pi, _Mapping]] = ..., ProximitySensors: _Optional[_Union[ProximitySensors, _Mapping]] = ..., Telemetry: _Optional[_Union[Telemetry, _Mapping]] = ..., TimeStamp: _Optional[int] = ..., Title: _Optional[str] = ...) -> None: ...

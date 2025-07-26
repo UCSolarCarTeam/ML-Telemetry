@@ -15,6 +15,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+print("Starting Protobuf FastAPI server... Listening on port 4000")
+
 
 @app.get("/")
 def send():
@@ -26,7 +28,7 @@ async def receive(request: Request):
     request_data = await request.body()
     print(f"Raw request data: {request_data}")
 
-    payload = HeliosPacket.B3()
+    payload = HeliosPacket.TelemetryData().B3
     payload.ParseFromString(request_data)
     print("/receive received:")
     print(f"B3.Acceleration: {payload.Acceleration}")
