@@ -1,0 +1,352 @@
+syntax = "proto3";
+
+package telemetry;
+
+// --- Nested Messages ---
+
+message BatteryFaultWarnings {
+  bool CclReducedDueToAlternateCurrentLimit = 1;
+  bool CclReducedDueToChargerLatch = 2;
+  bool CclReducedDueToHighCellResistance = 3;
+  bool CclReducedDueToHighCellVoltage = 4;
+  bool CclReducedDueToHighPackVoltage = 5;
+  bool CclReducedDueToHighSoc = 6;
+  bool CclReducedDueToTemperature = 7;
+  bool DclAndCclReducedDueToCommunicationFailsafe = 8;
+  bool DclAndCclReducedDueToVoltageFailsafe = 9;
+  bool DclReducedDueToHighCellResistance = 10;
+  bool DclReducedDueToLowCellVoltage = 11;
+  bool DclReducedDueToLowPackVoltage = 12;
+  bool DclReducedDueToLowSoc = 13;
+  bool DclReducedDueToTemperature = 14;
+}
+
+message BatteryFaultErrors {
+  bool AlwaysOnSupplyFault = 1;
+  bool CanbusCommunicationFault = 2;
+  bool ChargeLimitEnforcementFault = 3;
+  bool ChargerSafetyRelayFault = 4;
+  bool CurrentSensorFault = 5;
+  bool DischargeLimitEnforcementFault = 6;
+  bool FanMonitorFault = 7;
+  bool HighVoltageIsolationFault = 8;
+  bool InternalCommunicationFault = 9;
+  bool InternalConversionFault = 10;
+  bool InternalLogicFault = 11;
+  bool InternalMemoryFault = 12;
+  bool InternalThermistorFault = 13;
+  bool LowCellVoltageFault = 14;
+  bool OpenWiringFault = 15;
+  bool PackVoltageSensorFault = 16;
+  bool PowerSupply12VFault = 17;
+  bool ThermistorFault = 18;
+  bool VoltageRedundancyFault = 19;
+  bool WeakCellFault = 20;
+  bool WeakPackFault = 21;
+}
+
+message BatteryFaults {
+  BatteryFaultErrors Errors = 1;
+  BatteryFaultWarnings Warnings = 2;
+}
+
+message BatteryStatus {
+  bool AlwaysOnSignalStatus = 1;
+  float AverageCellVoltage = 2;
+  float AverageTemperature = 3;
+  float BmuAlive = 4;
+  bool ChargeRelayEnabled = 5;
+  bool ChargerSafetyEnabled = 6;
+  bool DischargeRelayEnabled = 7;
+  float FanSpeed = 8;
+  float FanVoltage = 9;
+  float HighCellVoltage = 10;
+  float HighCellVoltageId = 11;
+  float HighTemperature = 12;
+  float HighThermistorId = 13;
+  float Input12V = 14;
+  float InternalTemperature = 15;
+  bool IsChargingSignalStatus = 16;
+  bool IsReadySignalStatus = 17;
+  float LowCellVoltage = 18;
+  float LowCellVoltageId = 19;
+  float LowTemperature = 20;
+  float LowThermistorId = 21;
+  bool MalfunctionIndicatorActive = 22;
+  float MaximumCellVoltage = 23;
+  float MaximumPackVoltage = 24;
+  float MinimumCellVoltage = 25;
+  float MinimumPackVoltage = 26;
+  bool MultiPurposeInputSignalStatus = 27;
+  float PackAmphours = 28;
+  float PackCurrent = 29;
+  float PackDepthOfDischarge = 30;
+  float PackStateOfCharge = 31;
+  float PackVoltage = 32;
+  float PopulatedCells = 33;
+  float RequestedFanSpeed = 34;
+}
+
+message B3 {
+  float Acceleration = 1;
+  bool B3Heartbeat = 2;
+  bool BrakeLightSignalStatus = 3;
+  bool BrakeSwitchDigital = 4;
+  bool DaytimeRunningLightSignalStatus = 5;
+  bool ForwardDigital = 6;
+  bool HandbrakeSwitchDigital = 7;
+  bool HazardLightsInput = 8;
+  bool HeadightsSwitchInput = 9;
+  bool HeadlightSignalStatus = 10;
+  bool HornSignalStatus = 11;
+  bool HornSwitchDigital = 12;
+  bool LapDigital = 13;
+  bool LeftSignalInput = 14;
+  bool LeftSignalStatus = 15;
+  bool MotorResetDigital = 16;
+  bool NeutralDigital = 17;
+  bool RaceModeDigital = 18;
+  float RegenBraking = 19;
+  bool ReverseDigital = 20;
+  bool RightSignalInput = 21;
+  bool RightSignalStatus = 22;
+}
+
+message KeyMotor {
+  float BusCurrentOut = 1;
+  float KeyMotorVelocity = 2;
+  float MotorCurrent = 3;
+}
+
+message MBMS {
+  bool AbattDisable = 1;
+  bool ArrayContactorCommand = 2;
+  bool ArrayHeartbeatDeadTrip = 3;
+  bool ArrayHighCurrentTrip = 4;
+  bool ArrayHighCurrentWarning = 5;
+  float AuxiliaryBatteryVoltage = 6;
+  bool CanOc12VWarning = 7;
+  bool ChargeContactorCommand = 8;
+  bool ChargeEnable = 9;
+  bool ChargeHeartbeatDeadTrip = 10;
+  bool ChargeHighCurrentTrip = 11;
+  bool ChargeHighCurrentWarning = 12;
+  bool ChargeSafety = 13;
+  bool ChargeShouldTrip = 14;
+  bool ChgFault = 15;
+  bool ChgLvEn = 16;
+  bool ChgOn = 17;
+  bool CommonContactorCommand = 18;
+  bool CommonHeartbeatDeadTrip = 19;
+  bool CommonHighCurrentTrip = 20;
+  bool CommonHighCurrentWarning = 21;
+  bool ContactorConnectedUnexpectedlyTrip = 22;
+  bool ContactorDisconnectedUnexpectedlyTrip = 23;
+  bool DcdcFault = 24;
+  bool DcdcOn = 25;
+  bool DischargeEnable = 26;
+  bool DischargeShouldTrip = 27;
+  bool En1 = 28;
+  bool EsdEnabledTrip = 29;
+  bool ExternalShutdown = 30;
+  bool Heartbeat = 31;
+  bool HighCellVoltageTrip = 32;
+  bool HighCellVoltageWarning = 33;
+  bool HighTemperatureTrip = 34;
+  bool HighTemperatureWarning = 35;
+  bool Key = 36;
+  bool LowCellVoltageTrip = 37;
+  bool LowCellVoltageWarning = 38;
+  bool LowTemperatureTrip = 39;
+  bool LowTemperatureWarning = 40;
+  bool LvContactorCommand = 41;
+  bool LvHeartbeatDeadTrip = 42;
+  bool LvHighCurrentTrip = 43;
+  bool LvHighCurrentWarning = 44;
+  bool MainPowerSwitch = 45;
+  bool MotorContactorCommand = 46;
+  bool MotorHeartbeatDeadTrip = 47;
+  bool MotorHighCurrentTrip = 48;
+  bool MotorHighCurrentWarning = 49;
+  bool MpsDisabledTrip = 50;
+  bool OrionCanReceivedRecently = 51;
+  bool OrionMessageTimeoutTrip = 52;
+  bool ProtectionTrip = 53;
+  float StartupState = 54;
+  bool StrobeBmsLight = 55;
+  float SystemState = 56;
+  bool ThreeAOc = 57;
+}
+
+message MotorDetails {
+  float ActiveMotor = 1;
+  float BEMF_D = 2;
+  float BEMF_Q = 3;
+  float BusCurrent = 4;
+  float BusVoltage = 5;
+  float DC_Bus_Ah = 6;
+  float DspBoardTemperature = 7;
+  float ErrorFlags = 8;
+  float HeatsinkTemperature = 9;
+  float Id = 10;
+  float Iq = 11;
+  float LimitFlags = 12;
+  float MotorId = 13;
+  float MotorTemperature = 14;
+  float MotorVelocity = 15;
+  float Odometer = 16;
+  float PhaseCurrentB = 17;
+  float PhaseCurrentC = 18;
+  float RxErrorCount = 19;
+  float SerialNumber = 20;
+  float SlipSpeed = 21;
+  float Supply15V = 22;
+  float Supply1V9 = 23;
+  float Supply3V3 = 24;
+  float TritiumId = 25;
+  float TxErrorCount = 26;
+  float Vd = 27;
+  float VehicleVelocity = 28;
+  float Vq = 29;
+}
+
+message MPPT {
+  float Mppt0Ch0ArrayCurrent = 1;
+  float Mppt0Ch0ArrayVoltage = 2;
+  float Mppt0Ch0BatteryVoltage = 3;
+  float Mppt0Ch0UnitTemperature = 4;
+  float Mppt0Ch1ArrayCurrent = 5;
+  float Mppt0Ch1ArrayVoltage = 6;
+  float Mppt0Ch1BatteryVoltage = 7;
+  float Mppt0Ch1UnitTemperature = 8;
+  float Mppt1Ch0ArrayCurrent = 9;
+  float Mppt1Ch0ArrayVoltage = 10;
+  float Mppt1Ch0BatteryVoltage = 11;
+  float Mppt1Ch0UnitTemperature = 12;
+  float Mppt1Ch1ArrayCurrent = 13;
+  float Mppt1Ch1ArrayVoltage = 14;
+  float Mppt1Ch1BatteryVoltage = 15;
+  float Mppt1Ch1UnitTemperature = 16;
+  float Mppt2Ch0ArrayCurrent = 17;
+  float Mppt2Ch0ArrayVoltage = 18;
+  float Mppt2Ch0BatteryVoltage = 19;
+  float Mppt2Ch0UnitTemperature = 20;
+  float Mppt2Ch1ArrayCurrent = 21;
+  float Mppt2Ch1ArrayVoltage = 22;
+  float Mppt2Ch1BatteryVoltage = 23;
+  float Mppt2Ch1UnitTemperature = 24;
+  float Mppt3Ch0ArrayCurrent = 25;
+  float Mppt3Ch0ArrayVoltage = 26;
+  float Mppt3Ch0BatteryVoltage = 27;
+  float Mppt3Ch0UnitTemperature = 28;
+  float Mppt3Ch1ArrayCurrent = 29;
+  float Mppt3Ch1ArrayVoltage = 30;
+  float Mppt3Ch1BatteryVoltage = 31;
+  float Mppt3Ch1UnitTemperature = 32;
+}
+
+message ContactorStatus {
+  bool ArrayBPSError = 1;
+  float ArrayChargeCurrent = 2;
+  bool ArrayContactorClosed = 3;
+  bool ArrayContactorClosing = 4;
+  bool ArrayContactorError = 5;
+  bool ArrayHeartbeat = 6;
+  float ArrayLineCurrent = 7;
+  bool ArrayPrechargerClosed = 8;
+  bool ArrayPrechargerClosing = 9;
+  bool ArrayPrechargerError = 10;
+
+  bool ChargeBPSError = 11;
+  float ChargeChargeCurrent = 12;
+  bool ChargeContactorClosed = 13;
+  bool ChargeContactorClosing = 14;
+  bool ChargeContactorError = 15;
+  bool ChargeHeartbeat = 16;
+  float ChargeLineCurrent = 17;
+  bool ChargePrechargerClosed = 18;
+  bool ChargePrechargerClosing = 19;
+  bool ChargePrechargerError = 20;
+
+  float CommonChargeCurrent = 21;
+  bool CommonContactorClosed = 22;
+  bool CommonContactorClosing = 23;
+  bool CommonContactorError = 24;
+  bool CommonContactorOpeningError = 25;
+  bool CommonHeartbeat = 26;
+  float CommonLineCurrent = 27;
+  bool CommonPrechargerClosed = 28;
+  bool CommonPrechargerClosing = 29;
+  bool CommonPrechargerError = 30;
+
+  bool LvBpsError = 31;
+  float LvChargeCurrent = 32;
+  bool LvContactorClosed = 33;
+  bool LvContactorClosing = 34;
+  bool LvContactorError = 35;
+  bool LvHeartbeat = 36;
+  float LvLineCurrent = 37;
+  bool LvPrechargerClosed = 38;
+  bool LvPrechargerClosing = 39;
+  bool LvPrechargerError = 40;
+
+  bool MotorBPSError = 41;
+  float MotorChargeCurrent = 42;
+  bool MotorContactorClosed = 43;
+  bool MotorContactorClosing = 44;
+  bool MotorContactorError = 45;
+  bool MotorHeartbeat = 46;
+  float MotorLineCurrent = 47;
+  bool MotorPrechargerClosed = 48;
+  bool MotorPrechargerClosing = 49;
+  bool MotorPrechargerError = 50;
+}
+
+message Pi {
+  string Rfid = 1;
+}
+
+message ProximitySensors {
+  float ProximitySensor1 = 1;
+  float ProximitySensor2 = 2;
+  float ProximitySensor3 = 3;
+  float ProximitySensor4 = 4;
+}
+
+message Telemetry {
+  float GpsAdditionalFlags = 1;
+  float GpsDay = 2;
+  float GpsFixStatusFlags = 3;
+  float GpsHour = 4;
+  float GpsLatitude = 5;
+  float GpsLongitude = 6;
+  float GpsMinute = 7;
+  float GpsMonth = 8;
+  float GpsSecond = 9;
+  float GpsValidityFlags = 10;
+  float GpsYear = 11;
+  float MpuAccelerationX = 12;
+  float MpuAccelerationY = 13;
+  float MpuAccelerationZ = 14;
+  float MpuRotationX = 15;
+  float MpuRotationY = 16;
+  float MpuRotationZ = 17;
+  float MpuTemperature = 18;
+}
+
+message TelemetryData {
+  B3 B3 = 1;
+  BatteryStatus Battery = 2;
+  BatteryFaults BatteryFaults = 3;
+  ContactorStatus Contactor = 4;
+  KeyMotor KeyMotor = 5;
+  MBMS MBMS = 6;
+  MPPT MPPT = 7;
+  MotorDetails MotorDetails0 = 8;
+  MotorDetails MotorDetails1 = 9;
+  Pi Pi = 10;
+  ProximitySensors ProximitySensors = 11;
+  Telemetry Telemetry = 12;
+  uint64 TimeStamp = 13;
+  string Title = 14;
+}

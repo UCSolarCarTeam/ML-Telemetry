@@ -1,0 +1,4 @@
+uvicorn==0.32.0
+fastapi==0.115.3
+protobuf==5.28.3
+requests==2.32.3
